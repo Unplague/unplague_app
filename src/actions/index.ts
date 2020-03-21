@@ -5,9 +5,8 @@ export const addInform = (value: number) => ({
     value
 });
 
-export const addEvent = (title: string, eventDate: Date) => ({
+export const addEvent = (eventDate: Date) => ({
     type: 'ADD_EVENT',
-    title,
     eventDate
 });
 
