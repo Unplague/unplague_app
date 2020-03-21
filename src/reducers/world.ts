@@ -46,6 +46,12 @@ function nextRound(state: WorldState): WorldState {
         new_state.regions[0].infectionRate = 0.7;
         new_state.regions[1].infectionRate = 0.2;
     }
+    new_state.regions.forEach(region => {
+        region.infectionRate += 0.1;
+        if (region.infectionRate > 1.0) {
+            region.infectionRate = 1.0;
+        }
+    });
     return new_state;
 }
 
