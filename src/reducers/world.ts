@@ -6,6 +6,7 @@ type Action = {
   infection: number,
   satisfaction: number,
   costs: number,
+  used: Boolean,
 }
 
 type WorldState = {
@@ -34,14 +35,39 @@ const world = (state = initialState, action: any) => {
         ]
       })
     case "SELECT_REGION":
+      if (state.round == 0) {
+        return state;
+      }
       return Object.assign({}, state, {
         selectedRegion: action.region
       });
     case "NEXT_ROUND":
       return nextRound(state);
     case "QUEUE_ACTION":
-      alert('Clicked: ' + action.value)
-      return state;
+      // error handling
+      if (state.selectedRegion === undefined) {
+        alert("No region selected");
+        return state;
+      }
+      if (state.round == 0) {
+        return state;
+      }
+      let userAction:Action = state.selectedRegion.actionList[action.value];
+      if (state.money < userAction.costs) {
+        alert("You do not have enough money");
+        return state;
+      }
+      let new_state = Object.assign({}, state, {
+        money: state.money - userAction.costs,
+        queuedActions: [
+          ...state.queuedActions,
+          {
+            region: state.selectedRegion,
+            action: userAction,
+          }
+        ]
+      });
+      return new_state;
     default:
       return state;
     }
@@ -72,6 +98,7 @@ function nextRound(state: WorldState): WorldState {
 
   new_state.regions[0] = applyAction(action, region);
 
+  new_state.selectedRegion = undefined;
   return new_state;
 }
 

@@ -14,7 +14,8 @@ const RoundControl = (props: any) => {
     } else {
         return (
             <p>
-                Current round: {props.round}
+                Current round: {props.round} <br />
+                Money: {props.money} <br />
                 <button onClick={() => store.dispatch(nextRound())}>
                     Next Round
                 </button>
@@ -25,7 +26,8 @@ const RoundControl = (props: any) => {
 
 const mapStateToProps: any = (state: any) => {
     return {
-        round: state.world.round
+        round: state.world.round,
+        money: state.world.money,
     }
 };
 export default connect(mapStateToProps)(RoundControl);
