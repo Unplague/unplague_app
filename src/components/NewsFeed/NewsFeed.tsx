@@ -1,61 +1,43 @@
+import { connect } from "react-redux";
 import React from 'react';
 import NewsItem from './NewsItem';
 import NewsItemProps from './NewsItem';
 
+import { addNews } from "../../actions";
+
 import './NewsFeed.css';
 
-interface News {
-    newsDate: Date;
-    title: string;
-}
 
-interface INewsFeedProps {
-}
+const AddNewsButton = ({ dispatch }: { dispatch: any }) => {
+    return <button onClick={() => dispatch(addNews("meintext"))}>Add news</button>;
+};
 
-interface INewsFeedState {
-    news: any[];
-}
+const MyButton = connect()(AddNewsButton)
 
-class NewsFeed extends React.Component<INewsFeedProps, INewsFeedState> {
+const NewsFeed = (props: any) => {
 
-    constructor(props: any) {
-        super(props);
-
-        this.state = {
-            news: []
-        }
-
-        this.render = this.render.bind(this)
-    }
-
-    addNews(news: News) {
-        let oldNews: any[] = this.state.news;
-
-        this.setState({
-            news: oldNews.concat(news)
-        });
-    }
-
-    render() {
-        let testinput: News = { title: 'Bla', newsDate: new Date() }
-
-        return (
-            <div className="NewsContainer">
-                <h3>News</h3>
-                <button onClick={() => this.addNews(testinput)}>Add</button>
-
-                <div className="NewsFeed">
-                    <ul>
-                        {
-                            this.state.news.map((item, i) => {
-                                return <NewsItem key={i} title={item.title} newsDate={item.newsDate} />
-                            })
-                        }
-                    </ul>
-                </div>
+    return (
+        <div className="NewsContainer">
+            <h3>News</h3>
+            <MyButton />
+            <div className="NewsFeed">
+                <ul>
+                    {
+                        props.news.map((item: any, i: any) => {
+                            return <NewsItem key={i} title={item.title} newsDate={item.newsDate} />
+                        })
+                    }
+                </ul>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
-export default NewsFeed;
+const mapStateToProps: any = (state: any) => {
+    return {
+        news: state.news
+    }
+};
+
+export default connect(mapStateToProps)(NewsFeed);
+//export default NewsFeed;
