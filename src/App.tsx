@@ -3,6 +3,7 @@ import './App.css';
 import AddInformMeasure from './containers/AddInformMeasure'
 import MainMap from './components/MainMap'
 import InformedStatus from './containers/InformedStatus';
+import RegionList from './containers/WorldView';
 
 import NewsFeed from './containers/NewsFeed/NewsFeed'
 
@@ -23,6 +24,7 @@ class App extends React.Component {
           <div className="newsboard">
             <NewsFeed/>
           </div>
+          <RegionList />
           <MainMap/>
           <div className="interactionboard">
             Interaction Board
