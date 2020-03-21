@@ -15,7 +15,7 @@ const RoundControl = (props: any) => {
         return (
             <p>
                 Current round: {props.round} <br />
-                Money: {props.money} <br />
+                Money: {props.money} ₮ <br />
                 <button onClick={() => store.dispatch(nextRound())}>
                     Next Round
                 </button>

@@ -104,12 +104,5 @@
         "satisfaction": 30,
         "costs": 252,
         "unlock": 0
-    }, {
-        "category": "Nothing",
-        "name": "Nothing",
-        "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
-        "unlock": 0
     }]
 }

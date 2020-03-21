@@ -14,7 +14,7 @@ const ActionList = (props: any) => {
                         props.actions.map((item: any, i: any) => {
                         return <div>
                                 <button onClick={() => store.dispatch(queueAction(i))} disabled={item.used === true}>
-                                    {item.name}
+                                    {item.name} ({item.costs} ₮)
                                 </button>
                             </div>
                         })
