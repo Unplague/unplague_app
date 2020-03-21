@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import measures from './measures'
 import news from './news'
-import regions from './regions'
+import world from './world'
 
 export default combineReducers({
     measures,
     news,
-    regions,
+    world,
 })

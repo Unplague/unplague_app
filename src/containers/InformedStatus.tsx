@@ -6,14 +6,14 @@ const createLogs = (measures: any) => {
 };
 
 const InformedStatus = (props: any) => {
-    console.log(props);
+  console.log(props);
   return <div>{createLogs(props.measures)}</div>;
 };
 
 const mapStateToProps: any = (state: any) => {
-    return {
-        measures: state.measures
-    }
+  return {
+      measures: state.measures
+  }
 };
 
 export default connect(mapStateToProps)(InformedStatus);
