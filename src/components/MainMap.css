@@ -1,8 +1,4 @@
 .leaflet-container {
-    position: absolute;
-    top:0px;
-    left:200px;
-    right:200px;
-    bottom:0px;
-    background-color:#262626 !important ;
-  }
+    flex: 1;
+    background-color: #262626 !important;
+}
