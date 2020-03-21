@@ -2,7 +2,7 @@ import React from 'react';
 import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet';
 import { LatLngTuple } from 'leaflet';
 import 'leaflet-css';
-import countries from '../data/countries.json';
+import continents from '../data/continents.json';
 
 class MainMap extends React.Component {
 
@@ -16,7 +16,7 @@ class MainMap extends React.Component {
 
     map = <Map 
             bounds={[[-90, -180],[90, 360]]} 
-            dragging={false} 
+            dragging={false}
             center={this.position} 
             zoom={this.state.zoom}
             minZoom={this.state.zoom} 
@@ -27,7 +27,7 @@ class MainMap extends React.Component {
             url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
             noWrap={true} 
             />
-        <GeoJSON data={countries as any}></GeoJSON>
+        <GeoJSON data={continents as any}></GeoJSON>
         </Map>
 
     updateMapSize(evt: any) {
