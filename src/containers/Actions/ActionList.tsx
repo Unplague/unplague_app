@@ -1,6 +1,6 @@
 
 import actionList from '../../data/actions.json';
-import { executeAction, addEvent } from "../../actions";
+import { executeAction as queueAction, addEvent } from "../../actions";
 import React from 'react';
 
 import '../../components/EventFeed/EventFeed.css';
@@ -16,7 +16,7 @@ const ActionList = (props: any) => {
                 <ul>
                     {
                         actions.map((item: any, i: any) => {
-                        return <button onClick={() => store.dispatch(executeAction(i))}>
+                        return <button onClick={() => store.dispatch(queueAction(i))}>
                             {item.name}
                             </button>
                         })

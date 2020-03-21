@@ -13,7 +13,7 @@ export const addEvent = (title: string, eventDate: Date) => ({
 
 
 export const executeAction = (value: number) => ({
-    type: 'EXECUTE_ACTION',
+    type: 'QUEUE_ACTION',
     value
 });
 
