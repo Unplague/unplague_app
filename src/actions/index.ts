@@ -8,3 +8,9 @@ export const addEvent = (title: string, eventDate: Date) => ({
     title,
     eventDate
 });
+
+
+export const executeAction = (value: number) => ({
+    type: 'EXECUTE_ACTION',
+    value
+});

@@ -6,8 +6,8 @@ import AddEventButton from './AddEventButton'
 
 import '../../components/EventFeed/EventFeed.css';
 
-
 const EventFeed = (props: any) => {
+    
 
     return (
         <div className="EventContainer">
@@ -31,5 +31,7 @@ const mapStateToProps: any = (state: any) => {
         events: state.events
     }
 };
+
+
 
 export default connect(mapStateToProps)(EventFeed);

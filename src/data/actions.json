@@ -1,0 +1,94 @@
+{
+    "actions": [{
+        "category": "Aufklärung",
+        "name": "Händewaschen",
+        "infection": 10,
+        "satisfaction": 3,
+        "costs": 67,
+        "unlock": 0
+    }, {
+        "category": "Aufklärung",
+        "name": "Social Distancing",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Aufklärung",
+        "name": "Nießverhalten",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Aufklärung",
+        "name": "Twitter",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Aufklärung",
+        "name": "World News",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Aufklärung",
+        "name": "Permanent Broadcast",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Aufklärung",
+        "name": "Finanzspritze",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Einschränkung",
+        "name": "Ausgangsbegrenzung",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Einschränkung",
+        "name": "Ausgangssprerre",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Einschränkung",
+        "name": "Lock-Down",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Globale",
+        "name": "WHO Rede",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Globale",
+        "name": "World Emergency",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }, {
+        "category": "Nothing",
+        "name": "Nothing",
+        "infection": 0,
+        "satisfaction": 0,
+        "costs": 0,
+        "unlock": 0
+    }]
+}

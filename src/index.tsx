@@ -5,7 +5,7 @@ import { createStore } from 'redux'
 import rootReducer from './reducers'
 import App from './App'
 
-const store = createStore(rootReducer)
+export const store = createStore(rootReducer)
 
 render(
   <React.StrictMode>
@@ -15,3 +15,5 @@ render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+

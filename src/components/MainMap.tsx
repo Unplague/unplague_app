@@ -4,8 +4,9 @@ import { LatLngTuple } from 'leaflet';
 import 'leaflet-css';
 import continents from '../data/continents.json';
 
-class MainMap extends React.Component {
 
+class MainMap extends React.Component {
+    
     state = {
         lat: 0,
         lng: 0,

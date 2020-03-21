@@ -5,6 +5,7 @@ import MainMap from './components/MainMap'
 import InformedStatus from './containers/InformedStatus';
 
 import EventFeed from './containers/EventFeed/EventFeed'
+import ActionList from './containers/Actions/ActionList';
 
 class App extends React.Component {
 
@@ -26,7 +27,7 @@ class App extends React.Component {
           <MainMap/>
           <div className="interactionboard">
             Interaction Board
-            <AddInformMeasure />
+            <ActionList />
           </div>
         </div>
         <div className="footer">Statusinfo<InformedStatus></InformedStatus></div>
