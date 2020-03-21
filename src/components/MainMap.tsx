@@ -12,7 +12,6 @@ class MainMap extends React.Component<{regions:{name: string, population: number
         super(props, context);
         this.updateMapSize = this.updateMapSize.bind(this);
         this.getColor = this.getColor.bind(this);
-        this.getLineColor = this.getLineColor.bind(this);
         this.getStyle = this.getStyle.bind(this);
         this.selectRegion = this.selectRegion.bind(this);
         this.state = {
@@ -37,17 +36,12 @@ class MainMap extends React.Component<{regions:{name: string, population: number
         return `rgb(${r},${g},${b})`
     }
 
-    getLineColor(feature: any) {
-        if (feature.properties.CONTINENT === this.state.activeRegion) return `blue`;
-        else return 'grey'
-    }
-
     getStyle(feature: any) {
         return {
             fillColor: this.getColor(this.props.regions.filter((region) => region.name === feature.properties.CONTINENT)[0]),
-            weight: 1,
+            weight: feature.properties.CONTINENT === this.state.activeRegion ? 2 : 1,
             opacity: 1,
-            color: this.getLineColor(feature),
+            color: feature.properties.CONTINENT === this.state.activeRegion ? `yellow` : `grey`,
             fillOpacity: 0.6
         };
     }
