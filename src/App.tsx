@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
+import AddInformMeasure from './containers/AddInformMeasure'
 import MainMap from './components/MainMap'
+import InformedStatus from './containers/InformedStatus';
 
 class App extends React.Component {
 
@@ -22,9 +24,10 @@ class App extends React.Component {
           <MainMap/>
           <div className="interactionboard">
             Interaction Board
+            <AddInformMeasure />
           </div>
         </div>
-        <div className="footer">Statusinfo</div>
+        <div className="footer">Statusinfo<InformedStatus></InformedStatus></div>
       </div> 
     );
   }
