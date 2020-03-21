@@ -21,8 +21,8 @@ class MainMap extends React.Component<{regions:{name: string, population: number
 
     updateMapSize(evt:any) {
         let zoomHeight = Math.log2(evt.newSize.y * 2 / 256)
-        let zoomWidth = Math.log2(evt.newSize.x * 1.1 / 256)
-        this.setState({zoom: Math.floor(Math.min(zoomWidth*1.1, zoomHeight))});
+        let zoomWidth = Math.log2(evt.newSize.x * 1.2 / 256)
+        this.setState({zoom: Math.floor(Math.min(zoomWidth, zoomHeight))});
         console.log(this.state.zoom)
     }
 
@@ -56,6 +56,7 @@ class MainMap extends React.Component<{regions:{name: string, population: number
             dragging={false}
             animate={false}
             onresize={this.updateMapSize.bind(this)}
+            attributionControl={false}
             >
         <GeoJSON data={continents as any} style={this.getStyle}></GeoJSON>
         </Map>);
