@@ -2,7 +2,7 @@ const initialState = {
   regions: [],
   money: 100,
   clock: 1,
-  selectedRegion: "",
+  selectedRegion: undefined,
 }
 
 const world = (state = initialState, action: any) => {
@@ -18,9 +18,8 @@ const world = (state = initialState, action: any) => {
       })
     case "SELECT_REGION":
       return Object.assign({}, state, {
-        selectedRegion: action.name
-      })
-      return state;
+        selectedRegion: action.region
+      });
     default:
       return state;
     }

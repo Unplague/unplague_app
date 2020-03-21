@@ -6,6 +6,8 @@ import InformedStatus from './containers/InformedStatus';
 
 import EventFeed from './containers/EventFeed/EventFeed'
 import ActionList from './containers/Actions/ActionList';
+import RegionStats from './containers/RegionStats';
+import RegionList from './containers/RegionList';
 
 class App extends React.Component {
 
@@ -32,8 +34,10 @@ class App extends React.Component {
           <div className="eventboard">
             <EventFeed/>
           </div>
+          <RegionList />
           <MainMap regions={this.dummyRegions}/>
           <div className="interactionboard">
+            <RegionStats />
             Interaction Board
             <ActionList />
           </div>
