@@ -55,9 +55,8 @@ class App extends React.Component<MyProps, MyState> {
     let regions = [];
     if(this.state.lat) {
       position = [this.state.lat, this.state.lng];
+      regions = this.state.regions;
     }
-
-    regions = store.getState().world.regions;
 
     return (
       <div className="app">
