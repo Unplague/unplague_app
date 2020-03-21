@@ -7,9 +7,11 @@ import { nextRound } from '../actions';
 const RoundControl = (props: any) => {
     if (props.round == 0) {
         return (
-            <button onClick={() => store.dispatch(nextRound())}>
-                Start Game
-            </button>
+            <div className="start-button-container">
+                <button onClick={() => store.dispatch(nextRound())}>
+                    Start Game
+                </button>
+            </div>
         );
     } else {
         return (

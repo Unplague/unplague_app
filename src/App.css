@@ -50,3 +50,20 @@ body {
     width: 200px;
     background-color: grey;
 }
+
+.start-button-container {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    bottom: 10%;
+    right: 10%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-button-container button {
+    height: 50px;
+    width: 150px;
+}
