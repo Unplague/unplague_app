@@ -1,0 +1,23 @@
+.NewsContainer {
+    margin: 5px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.NewsFeed {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+
+    max-height: 300px;
+}
+
+.NewsFeed .NewsTitle {
+    font-weight: bold;
+}
+
+.NewsFeed .NewsDate {
+    font-size: 12px;
+}

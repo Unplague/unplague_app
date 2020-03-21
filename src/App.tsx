@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import MainMap from './components/MainMap'
 
+import NewsFeed from './components/NewsFeed/NewsFeed'
+
 class App extends React.Component {
 
   state = {
@@ -17,7 +19,7 @@ class App extends React.Component {
         <div className="header">Coronafighter</div>
         <div className="body">
           <div className="newsboard">
-            News Board
+            <NewsFeed/>
           </div>
           <MainMap/>
           <div className="interactionboard">
