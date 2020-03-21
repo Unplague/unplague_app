@@ -67,7 +67,10 @@ const world = (state = initialState, action: any) => {
           }
         ]
       });
-      new_state.regions[state.selectedRegion].actionList[action.value].used = true;
+      new_state.regions[state.selectedRegion].actionList = state.regions[state.selectedRegion].actionList.slice();
+      new_state.regions[state.selectedRegion].actionList[action.value] = Object.assign({}, userAction, {
+        used: true,
+      });
       return new_state;
     default:
       return state;
