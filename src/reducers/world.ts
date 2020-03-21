@@ -1,5 +1,7 @@
 import actionList from '../data/actions.json';
 import { Region } from "../model/Region";
+import { store } from '..';
+import { addEvent } from '../actions';
 
 type Action = {
   name: string,

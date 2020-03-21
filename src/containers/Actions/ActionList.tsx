@@ -1,4 +1,4 @@
-import { executeAction as queueAction, addEvent } from "../../actions";
+import { executeAction as queueAction } from "../../actions";
 import React from 'react';
 
 import '../../components/EventFeed/EventFeed.css';

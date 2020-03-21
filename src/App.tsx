@@ -61,7 +61,7 @@ class App extends React.Component<MyProps, MyState> {
 
     return (
       <div className="app">
-        <div className="header">Coronafighter</div>
+        <div className="header">Unplague</div>
         <div className="content">
           <div className="eventboard">
             <EventFeed/>

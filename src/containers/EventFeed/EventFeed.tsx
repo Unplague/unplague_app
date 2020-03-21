@@ -17,7 +17,7 @@ const EventFeed = (props: any) => {
                 <ul>
                     {
                         props.events.map((item: any, i: any) => {
-                            return <EventItem key={i} title={item.title} eventDate={item.eventDate} />
+                            return <EventItem key={i} title={item.title} week={item.week} />
                         })
                     }
                 </ul>

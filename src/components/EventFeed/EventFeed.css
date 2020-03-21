@@ -19,3 +19,8 @@
 .EventFeed .EventDate {
     font-size: 12px;
 }
+
+.EventFeed ul {
+    margin: 0;
+    padding: 0;
+}
