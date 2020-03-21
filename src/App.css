@@ -1,52 +1,50 @@
-html, body {
-  height: 100%;
-  width: 100%;
-
-  margin: 0;
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
 .app {
-  display: flex;
-  flex-direction: column;
-
-  height: 100vh;
-  width: 100vw;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: #262626;
 }
 
 .header {
-  width: 100%;
-  height: 50px;
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
 }
 
 .footer {
-  width: 100%;
-  height: 50px;
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
 }
 
 .content {
-  flex: 1;
-
-  display:flex;
-  flex-direction:row;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
 }
 
 .leaflet-container {
-  flex: 1;
-  
-  background-color:#262626;
+    flex: 1;
+    background-color: #262626;
+    /* ToDo fill space with map */
 }
 
 .newsboard {
-  flex-shrink: 1;
-
-  width: 200px;
-  background-color:grey;
+    flex-shrink: 1;
+    width: 200px;
+    background-color: grey;
 }
 
-
 .interactionboard {
-  flex-shrink: 0;
-
-  width:200px;
-  background-color:grey;
+    flex-shrink: 0;
+    width: 200px;
+    background-color: grey;
 }
