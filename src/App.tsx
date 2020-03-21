@@ -12,38 +12,53 @@ import RegionList from './containers/RegionList';
 import { store } from './index';
 
 
+interface MyProps {
+  
+}
 
-class App extends React.Component {
+interface MyState {
+  lat: any,
+  lng: any,
+  zoom:any,
+  regions: any
+}
+
+class App extends React.Component<MyProps, MyState> {
 
   constructor(props: any) {
-    super(props);
+    super(props); 
 
+    this.state = {
+      lat: 51.505,
+      lng: -0.09,
+      zoom: 13,
+      regions: []
+    }
+
+    this.handleRegionChange = this.handleRegionChange.bind(this);
     let unsubscribe = store.subscribe(this.handleRegionChange);
   }
 
-  state = {
-    lat: 51.505,
-    lng: -0.09,
-    zoom: 13
-  }
-
   handleRegionChange(): void {
-    console.log(store.getState())
+    console.log(store.getState().world.regions)
     console.log("fghsfdghsdfg")
-  }
 
-  
-  dummyRegions = [{name: "Asia", population: 123123, infectionRate: .8, reproductionRate: .2, happiness: .1},
-  {name: "North America", population: 123123, infectionRate: .2, reproductionRate: .2, happiness: .1},
-  {name: "South America", population: 123123, infectionRate: .3, reproductionRate: .2, happiness: .1},
-  {name: "Europe", population: 123123, infectionRate: .5, reproductionRate: .2, happiness: .1},
-  {name: "Africa", population: 123123, infectionRate: .8, reproductionRate: .2, happiness: .1},
-  {name: "Oceania", population: 123123, infectionRate: .04, reproductionRate: .2, happiness: .1},
-  {name: "Australia", population: 123123, infectionRate: .03, reproductionRate: .2, happiness: .1}]
-  
+    this.setState({
+      regions: store.getState().world.regions
+    })
+
+  }
 
   render() {
-    const position = [this.state.lat, this.state.lng];
+    console.log(this.state)
+    let position = [0, 0]
+    let regions = [];
+    if(this.state.lat) {
+      position = [this.state.lat, this.state.lng];
+    }
+
+    regions = store.getState().world.regions;
+
     return (
       <div className="app">
         <div className="header">Coronafighter</div>
@@ -52,7 +67,7 @@ class App extends React.Component {
             <EventFeed/>
           </div>
           <RegionList />
-          <MainMap regions={this.dummyRegions}/>
+          <MainMap regions={regions}/>
           <div className="interactionboard">
             <RegionStats />
             Interaction Board
