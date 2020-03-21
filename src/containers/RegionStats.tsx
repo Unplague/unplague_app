@@ -24,7 +24,7 @@ const RegionStats = (props: any) => {
 
 const mapStateToProps: any = (state: any) => {
     return {
-        region: state.world.selectedRegion
+        region: state.world.regions[state.world.selectedRegion]
     }
 };
 export default connect(mapStateToProps)(RegionStats);

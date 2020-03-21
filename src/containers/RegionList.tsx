@@ -4,9 +4,9 @@ import { Region } from "../model/Region";
 import { selectRegion } from "../actions";
 import RegionButton from "../components/RegionButton";
 
-const createRegions = (regions: Array<Region>, selectedRegion: Region, onRegionClick: Function) => {
+const createRegions = (regions: Array<Region>, selectedRegion: number, onRegionClick: Function) => {
   return regions.map((region: Region, index: number) => 
-    <RegionButton name={region.name} selected={selectedRegion == region} onClick={() => onRegionClick(region)}></RegionButton>);
+    <RegionButton name={region.name} selected={selectedRegion == index} onClick={() => onRegionClick(index)}></RegionButton>);
 };
 
 const RegionList = (props: any) => {
@@ -23,8 +23,8 @@ const mapStateToProps: any = (state: any) => {
 
 const mapDispatchToProps:any = (dispatch: any) => {
   return {
-    onRegionClick: (region: Region) => {
-      dispatch(selectRegion(region))
+    onRegionClick: (regionId: number) => {
+      dispatch(selectRegion(regionId))
     }
   }
 }

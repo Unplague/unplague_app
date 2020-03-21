@@ -22,9 +22,9 @@ export const addRegion = (region: Region) => ({
     region,
 });
 
-export const selectRegion = (region: Region) => ({
+export const selectRegion = (regionId: number) => ({
     type: 'SELECT_REGION',
-    region,
+    regionId,
 });
 
 export const nextRound = () => ({

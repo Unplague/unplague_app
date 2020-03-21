@@ -13,7 +13,7 @@ type WorldState = {
   regions: Array<Region>,
   money: number,
   round: number,
-  selectedRegion?: Region,
+  selectedRegion?: number,
   queuedActions: Array<{action: any, region: Region}>,
 }
 
@@ -39,7 +39,7 @@ const world = (state = initialState, action: any) => {
         return state;
       }
       return Object.assign({}, state, {
-        selectedRegion: action.region
+        selectedRegion: action.regionId
       });
     case "NEXT_ROUND":
       return nextRound(state);
@@ -52,7 +52,7 @@ const world = (state = initialState, action: any) => {
       if (state.round == 0) {
         return state;
       }
-      let userAction:Action = state.selectedRegion.actionList[action.value];
+      let userAction:Action = state.regions[state.selectedRegion].actionList[action.value];
       if (state.money < userAction.costs) {
         alert("You do not have enough money");
         return state;
@@ -67,6 +67,7 @@ const world = (state = initialState, action: any) => {
           }
         ]
       });
+      new_state.regions[state.selectedRegion].actionList[action.value].used = true;
       return new_state;
     default:
       return state;

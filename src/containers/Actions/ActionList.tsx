@@ -25,9 +25,9 @@ const ActionList = (props: any) => {
 };
 
 const mapStateToProps: any = (state: any) => {
-    if (state.world.selectedRegion) {
+    if (state.world.selectedRegion !== undefined) {
         return {
-            actions: state.world.selectedRegion.actionList,
+            actions: state.world.regions[state.world.selectedRegion].actionList,
         }
     } else  {
         return {
