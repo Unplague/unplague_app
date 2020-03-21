@@ -38,6 +38,13 @@ body {
     background-color: grey;
 }
 
+.interactionboard_buttons {
+    overflow: hidden;
+    z-index: 10;
+    position: absolute;
+    left: 500px;
+}
+
 .interactionboard {
     flex-shrink: 0;
     width: 200px;

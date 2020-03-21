@@ -13,15 +13,13 @@ const ActionList = (props: any) => {
         <div className="EventContainer">
             <h3>Actions</h3>
             <div className="EventFeed">
-                <ul>
                     {
                         actions.map((item: any, i: any) => {
-                        return <button onClick={() => store.dispatch(queueAction(i))}>
+                        return <div><button onClick={() => store.dispatch(queueAction(i))}>
                             {item.name}
-                            </button>
+                            </button></div>
                         })
                     }
-                </ul>
             </div>
         </div>
     );

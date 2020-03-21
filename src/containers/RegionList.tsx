@@ -11,7 +11,7 @@ const createRegions = (regions: Array<Region>, selectedRegion: Region, onRegionC
 
 const RegionList = (props: any) => {
   console.log(props);
-  return <div>{createRegions(props.regions, props.selectedRegion, props.onRegionClick)}</div>;
+  return <div className="interactionboard_buttons">{createRegions(props.regions, props.selectedRegion, props.onRegionClick)}</div>;
 };
 
 const mapStateToProps: any = (state: any) => {
