@@ -9,79 +9,100 @@
     }, {
         "category": "Aufklärung",
         "name": "Social Distancing",
-        "infection": 0,
+        "infection": 8,
         "satisfaction": 0,
-        "costs": 0,
+        "costs": 48,
         "unlock": 0
     }, {
         "category": "Aufklärung",
         "name": "Nießverhalten",
-        "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
+        "infection": 5,
+        "satisfaction": 3,
+        "costs": 37,
         "unlock": 0
     }, {
         "category": "Aufklärung",
         "name": "Twitter",
-        "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
+        "infection": 2,
+        "satisfaction": 10,
+        "costs": 36,
         "unlock": 0
     }, {
         "category": "Aufklärung",
         "name": "World News",
-        "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
+        "infection": 8,
+        "satisfaction": 5,
+        "costs": 60,
         "unlock": 0
     }, {
         "category": "Aufklärung",
         "name": "Permanent Broadcast",
-        "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
+        "infection": 6,
+        "satisfaction": 3,
+        "costs": 43,
         "unlock": 0
     }, {
         "category": "Aufklärung",
         "name": "Finanzspritze",
         "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
+        "satisfaction": 30,
+        "costs": 72,
         "unlock": 0
     }, {
         "category": "Einschränkung",
         "name": "Ausgangsbegrenzung",
-        "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
+        "infection": 15,
+        "satisfaction": -5,
+        "costs": 93,
         "unlock": 0
     }, {
         "category": "Einschränkung",
         "name": "Ausgangssprerre",
-        "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
+        "infection": 30,
+        "satisfaction": -30,
+        "costs": 195,
         "unlock": 0
     }, {
         "category": "Einschränkung",
         "name": "Lock-Down",
-        "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
+        "infection": 70,
+        "satisfaction": -70,
+        "costs": 455,
+        "unlock": 0
+    }, {
+        "category": "Einschränkung",
+        "name": "Absichtliche Ansteckung",
+        "infection": -100,
+        "satisfaction": -50,
+        "costs": -150,
+        "unlock": 0
+    }, {
+        "category": "Einschränkung",
+        "name": "Patienten Isolation",
+        "infection": 20,
+        "satisfaction": -20,
+        "costs": 72,
+        "unlock": 0
+    }, {
+        "category": "Einschränkung",
+        "name": "Grenzen schließen",
+        "infection": 20,
+        "satisfaction": -10,
+        "costs": 96,
         "unlock": 0
     }, {
         "category": "Globale",
         "name": "WHO Rede",
-        "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
+        "infection": 25,
+        "satisfaction": 15,
+        "costs": 186,
         "unlock": 0
     }, {
         "category": "Globale",
         "name": "World Emergency",
-        "infection": 0,
-        "satisfaction": 0,
-        "costs": 0,
+        "infection": 30,
+        "satisfaction": 30,
+        "costs": 252,
         "unlock": 0
     }, {
         "category": "Nothing",

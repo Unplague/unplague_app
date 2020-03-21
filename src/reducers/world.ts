@@ -75,31 +75,42 @@ const world = (state = initialState, action: any) => {
 };
 
 function applyAction(action: Action, region: Region): Region {
+  // happiness can be anything between -100% (pure hate) and 200% (exaggerated happiness)
+  region.happiness = Math.max(Math.min(region.happiness * (1 - (action.satisfaction / 100)), 2), -1);
+
+  // infectionRate can be anything between 0% and 100%
+  region.infectionRate = Math.max(Math.min(region.infectionRate * (1 - (action.infection / 100)), 1), 0); 
 
   return region;
 }
 
 function nextRound(state: WorldState): WorldState {
   let new_state = Object.assign({}, state, {
-      round: state.round + 1
+      round: state.round + 1,
+      money: state.money + 100 // constant money gain
   });
+
   if (new_state.round == 1) {
     // assign initial infection
     new_state.regions[0].infectionRate = 0.7;
     new_state.regions[1].infectionRate = 0.2;
   }
+
+  /*new_state.regions.forEach(region => {
   new_state.regions.forEach(region => {
     region.infectionRate += 0.1;
     if (region.infectionRate > 1.0) {
         region.infectionRate = 1.0;
     }
-  });
+  });*/
+
   let action: Action = actionList.actions[0];
   let region = new_state.regions[0];
 
   new_state.regions[0] = applyAction(action, region);
 
-  new_state.selectedRegion = undefined;
+  console.log(new_state.regions[0])
+
   return new_state;
 }
 
