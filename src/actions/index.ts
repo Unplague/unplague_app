@@ -3,7 +3,8 @@ export const addInform = (value: number) => ({
     value
 });
 
-export const addNews = (title: string) => ({
+export const addNews = (title: string, newsDate: Date) => ({
     type: 'ADD_NEWS',
-    title
+    title,
+    newsDate
 });

@@ -1,25 +1,18 @@
 import { connect } from "react-redux";
 import React from 'react';
-import NewsItem from './NewsItem';
-import NewsItemProps from './NewsItem';
+import NewsItem from '../../components/NewsFeed/NewsItem';
 
-import { addNews } from "../../actions";
+import AddNewsButton from './AddNewsButton'
 
-import './NewsFeed.css';
+import '../../components/NewsFeed/NewsFeed.css';
 
-
-const AddNewsButton = ({ dispatch }: { dispatch: any }) => {
-    return <button onClick={() => dispatch(addNews("meintext"))}>Add news</button>;
-};
-
-const MyButton = connect()(AddNewsButton)
 
 const NewsFeed = (props: any) => {
 
     return (
         <div className="NewsContainer">
             <h3>News</h3>
-            <MyButton />
+            <AddNewsButton />
             <div className="NewsFeed">
                 <ul>
                     {

@@ -6,10 +6,10 @@ type NewsItemProps = {
     title: string,
 }
 
-const NewsItem: FunctionComponent<NewsItemProps> = ({ newsDate, title }: any) => (
+const NewsItem: FunctionComponent<NewsItemProps> = ({ title, newsDate }: any) => (
     <div>
         <div className="NewsDate">
-            {/*
+            {
                 newsDate.toLocaleDateString("en",
                     {
                         year: "numeric",
@@ -18,7 +18,7 @@ const NewsItem: FunctionComponent<NewsItemProps> = ({ newsDate, title }: any) =>
                         hour: "2-digit",
                         minute: "2-digit",
                         second: "2-digit"
-                    })*/
+                    })
             }
         </div>
         <div className="NewsTitle"> {title} </div>

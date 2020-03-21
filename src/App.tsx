@@ -4,7 +4,7 @@ import AddInformMeasure from './containers/AddInformMeasure'
 import MainMap from './components/MainMap'
 import InformedStatus from './containers/InformedStatus';
 
-import NewsFeed from './components/NewsFeed/NewsFeed'
+import NewsFeed from './containers/NewsFeed/NewsFeed'
 
 class App extends React.Component {
 
