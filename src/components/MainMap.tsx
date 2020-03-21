@@ -57,11 +57,6 @@ class MainMap extends React.Component<{regions:{name: string, population: number
             animate={false}
             onresize={this.updateMapSize.bind(this)}
             >
-        <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
-            noWrap={true} 
-            />
         <GeoJSON data={continents as any} style={this.getStyle}></GeoJSON>
         </Map>);
   }
