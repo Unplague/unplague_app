@@ -27,3 +27,7 @@ export const selectRegion = (region: Region) => ({
     type: 'SELECT_REGION',
     region,
 });
+
+export const nextRound = () => ({
+    type: 'NEXT_ROUND',
+});

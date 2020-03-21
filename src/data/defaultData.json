@@ -1,10 +1,11 @@
 {
-    "data": [{ "name": "Asia", "population": 123123, "infectionRate": 0.8, "reproductionRate": 0.2, "happiness": 0.1 },
-        { "name": "North America", "population": 123123, "infectionRate": 0.2, "reproductionRate": 0.2, "happiness": 0.1 },
-        { "name": "South America", "population": 123123, "infectionRate": 0.3, "reproductionRate": 0.2, "happiness": 0.1 },
-        { "name": "Europe", "population": 123123, "infectionRate": 0.5, "reproductionRate": 0.2, "happiness": 0.1 },
-        { "name": "Africa", "population": 123123, "infectionRate": 0.8, "reproductionRate": 0.2, "happiness": 0.1 },
-        { "name": "Oceania", "population": 123123, "infectionRate": 0.04, "reproductionRate": 0.2, "happiness": 0.1 },
-        { "name": "Australia", "population": 123123, "infectionRate": 0.03, "reproductionRate": 0.2, "happiness": 0.1 }
+    "data": [
+        { "name": "Asia", "population": 123123 },
+        { "name": "Europe", "population": 123123 },
+        { "name": "North America", "population": 123123 },
+        { "name": "South America", "population": 123123 },
+        { "name": "Africa", "population": 123123 },
+        { "name": "Oceania", "population": 123123 },
+        { "name": "Australia", "population": 123123 }
     ]
 }

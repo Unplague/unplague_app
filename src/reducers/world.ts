@@ -1,7 +1,17 @@
-const initialState = {
+import { stat } from "fs";
+import { Region } from "../model/Region";
+
+type WorldState = {
+    regions: Array<Region>,
+    money: number,
+    round: number,
+    selectedRegion?: Region,
+}
+
+const initialState : WorldState = {
   regions: [],
   money: 100,
-  clock: 1,
+  round: 0,
   selectedRegion: undefined,
 }
 
@@ -20,10 +30,24 @@ const world = (state = initialState, action: any) => {
       return Object.assign({}, state, {
         selectedRegion: action.region
       });
+    case "NEXT_ROUND":
+        return nextRound(state);
     default:
       return state;
     }
 };
+
+function nextRound(state: WorldState): WorldState {
+    let new_state = Object.assign({}, state, {
+        round: state.round + 1
+    });
+    if (new_state.round == 1) {
+        // assign initial infection
+        new_state.regions[0].infectionRate = 0.7;
+        new_state.regions[1].infectionRate = 0.2;
+    }
+    return new_state;
+}
 
 export default world;
   

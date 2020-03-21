@@ -12,7 +12,7 @@ import defaultData from './data/defaultData.json';
 export const store = createStore(rootReducer)
 
 defaultData.data.map((item, index) => {
-  store.dispatch(addRegion(new Region(item.name, item.population, item.infectionRate, item.reproductionRate, item.happiness)))
+  store.dispatch(addRegion(new Region(item.name, item.population)));
 })
 
 render(
