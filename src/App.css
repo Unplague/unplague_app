@@ -34,12 +34,6 @@ body {
     flex-direction: row;
 }
 
-.leaflet-container {
-    flex: 1;
-    background-color: #262626;
-    /* ToDo fill space with map */
-}
-
 .eventboard {
     flex-shrink: 1;
     width: 200px;
