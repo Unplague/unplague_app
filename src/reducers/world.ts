@@ -107,7 +107,7 @@ function nextRound(state: WorldState): WorldState {
     }
   });*/
 
-  let action: Action = actionList.actions[0];
+  let action: any = actionList.actions[0];
   let region = new_state.regions[0];
 
   new_state.regions[0] = applyAction(action, region);

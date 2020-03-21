@@ -59,6 +59,7 @@ class MainMap extends React.Component<{regions:{name: string, population: number
             let poly = turf.multiPolygon(continents.features[i].geometry.coordinates);
             if (turf.booleanPointInPolygon(pt, poly)) newActiveRegion = continents.features[i].properties.CONTINENT;
         }
+        console.log(newActiveRegion) /* ToDo change buttons to select */
         this.setState({activeRegion: newActiveRegion});
     }
 
