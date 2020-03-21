@@ -3,8 +3,8 @@ export const addInform = (value: number) => ({
     value
 });
 
-export const addNews = (title: string, newsDate: Date) => ({
-    type: 'ADD_NEWS',
+export const addEvent = (title: string, eventDate: Date) => ({
+    type: 'ADD_EVENT',
     title,
-    newsDate
+    eventDate
 });

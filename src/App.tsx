@@ -4,7 +4,7 @@ import AddInformMeasure from './containers/AddInformMeasure'
 import MainMap from './components/MainMap'
 import InformedStatus from './containers/InformedStatus';
 
-import NewsFeed from './containers/NewsFeed/NewsFeed'
+import EventFeed from './containers/EventFeed/EventFeed'
 
 class App extends React.Component {
 
@@ -20,8 +20,8 @@ class App extends React.Component {
       <div className="app">
         <div className="header">Coronafighter</div>
         <div className="content">
-          <div className="newsboard">
-            <NewsFeed/>
+          <div className="eventboard">
+            <EventFeed/>
           </div>
           <MainMap/>
           <div className="interactionboard">

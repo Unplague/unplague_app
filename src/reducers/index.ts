@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import measures from './measures'
-import news from './news'
+import events from './events'
 
 export default combineReducers({
     measures,
-    news
+    events
 })

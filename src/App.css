@@ -37,7 +37,7 @@ body {
     /* ToDo fill space with map */
 }
 
-.newsboard {
+.eventboard {
     flex-shrink: 1;
     width: 200px;
     background-color: grey;

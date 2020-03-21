@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import './NewsFeed.css';
+import './EventFeed.css';
 
-type NewsItemProps = {
-    newsDate: Date,
+type EventItemProps = {
+    eventDate: Date,
     title: string,
 }
 
-const NewsItem: FunctionComponent<NewsItemProps> = ({ title, newsDate }: any) => (
+const EventItem: FunctionComponent<EventItemProps> = ({ title, eventDate }: any) => (
     <div>
-        <div className="NewsDate">
+        <div className="EventDate">
             {
-                newsDate.toLocaleDateString("en",
+                eventDate.toLocaleDateString("en",
                     {
                         year: "numeric",
                         day: "2-digit",
@@ -21,8 +21,8 @@ const NewsItem: FunctionComponent<NewsItemProps> = ({ title, newsDate }: any) =>
                     })
             }
         </div>
-        <div className="NewsTitle"> {title} </div>
+        <div className="EventTitle"> {title} </div>
     </div>
 )
 
-export default NewsItem;
+export default EventItem;

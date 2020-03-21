@@ -1,23 +1,21 @@
-.NewsContainer {
+.EventContainer {
     margin: 5px;
-
     display: flex;
     flex-direction: column;
 }
 
-.NewsFeed {
+.EventFeed {
     margin-top: 10px;
     display: flex;
     flex-direction: column-reverse;
     overflow: hidden;
-
     max-height: 300px;
 }
 
-.NewsFeed .NewsTitle {
+.EventFeed .EventTitle {
     font-weight: bold;
 }
 
-.NewsFeed .NewsDate {
+.EventFeed .EventDate {
     font-size: 12px;
 }

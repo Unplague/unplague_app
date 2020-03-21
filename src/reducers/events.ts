@@ -1,11 +1,11 @@
-const news = (state = [], action: { type: string; title: string, newsDate: Date }) => {
+const events = (state = [], action: { type: string; title: string, eventDate: Date }) => {
     switch (action.type) {
-        case "ADD_NEWS":
+        case "ADD_EVENT":
             return [
                 ...state,
                 {
                     title: action.title,
-                    newsDate: action.newsDate
+                    eventDate: action.eventDate
                 }
             ];
         default:
@@ -13,4 +13,4 @@ const news = (state = [], action: { type: string; title: string, newsDate: Date 
     }
 };
 
-export default news;
+export default events;
