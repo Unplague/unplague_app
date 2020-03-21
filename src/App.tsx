@@ -7,7 +7,17 @@ import InformedStatus from './containers/InformedStatus';
 import EventFeed from './containers/EventFeed/EventFeed'
 import ActionList from './containers/Actions/ActionList';
 
+import { store } from './index';
+
+
+
 class App extends React.Component {
+
+  constructor(props: any) {
+    super(props);
+
+    let unsubscribe = store.subscribe(this.handleRegionChange);
+  }
 
   state = {
     lat: 51.505,
@@ -15,6 +25,12 @@ class App extends React.Component {
     zoom: 13
   }
 
+  handleRegionChange(): void {
+    console.log(store.getState())
+    console.log("fghsfdghsdfg")
+  }
+
+  
   dummyRegions = [{name: "Asia", population: 123123, infectionRate: .8, reproductionRate: .2, happiness: .1},
   {name: "North America", population: 123123, infectionRate: .2, reproductionRate: .2, happiness: .1},
   {name: "South America", population: 123123, infectionRate: .3, reproductionRate: .2, happiness: .1},
@@ -22,6 +38,7 @@ class App extends React.Component {
   {name: "Africa", population: 123123, infectionRate: .8, reproductionRate: .2, happiness: .1},
   {name: "Oceania", population: 123123, infectionRate: .04, reproductionRate: .2, happiness: .1},
   {name: "Australia", population: 123123, infectionRate: .03, reproductionRate: .2, happiness: .1}]
+  
 
   render() {
     const position = [this.state.lat, this.state.lng];
