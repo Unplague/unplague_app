@@ -1,4 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
+import NewsItem from './NewsItem';
+import NewsItemProps from './NewsItem';
+
 import './NewsFeed.css';
 
 interface News {
@@ -12,7 +15,6 @@ interface INewsFeedProps {
 interface INewsFeedState {
     news: any[];
 }
-
 
 class NewsFeed extends React.Component<INewsFeedProps, INewsFeedState> {
 
@@ -35,10 +37,8 @@ class NewsFeed extends React.Component<INewsFeedProps, INewsFeedState> {
     }
 
     render() {
-        let newsList = this.state.news;
-
         let testinput: News = { title: 'Bla', newsDate: new Date() }
-        
+
         return (
             <div className="NewsContainer">
                 <h3>News</h3>
@@ -57,28 +57,5 @@ class NewsFeed extends React.Component<INewsFeedProps, INewsFeedState> {
         );
     }
 }
-
-
-type NewsProps = {
-    newsDate: Date,
-    title: string,
-}
-
-const NewsItem: FunctionComponent<NewsProps> = ({ newsDate, title }: News) => (
-    <div>
-        <div className="NewsDate">
-            {newsDate.toLocaleDateString("en",
-                {
-                    year: "numeric",
-                    day: "2-digit",
-                    month: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    second: "2-digit"
-                })}
-        </div>
-        <div className="NewsTitle"> {title} </div>
-    </div>
-)
 
 export default NewsFeed;
