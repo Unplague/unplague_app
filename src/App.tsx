@@ -15,7 +15,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <div className="header">Coronafighter</div>
-        <div className="body">
+        <div className="content">
           <div className="newsboard">
             News Board
           </div>
