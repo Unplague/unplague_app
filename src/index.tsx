@@ -7,13 +7,13 @@ import App from './App'
 import { addRegion } from './actions'
 import { Region } from './model/Region'
 
+import defaultData from './data/defaultData.json';
+
 export const store = createStore(rootReducer)
 
-store.dispatch(addRegion(new Region("Europe", 741_400_000, 0.05, 2, 100)))
-store.dispatch(addRegion(new Region("Asia", 741_400_000, 0.05, 2, 100)))
-store.dispatch(addRegion(new Region("North America", 741_400_000, 0.05, 2, 100)))
-store.dispatch(addRegion(new Region("South America", 741_400_000, 0.05, 2, 100)))
-
+defaultData.data.map((item, index) => {
+  store.dispatch(addRegion(new Region(item.name, item.population, item.infectionRate, item.reproductionRate, item.happiness)))
+})
 
 render(
   <React.StrictMode>
