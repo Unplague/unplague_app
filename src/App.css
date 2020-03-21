@@ -31,7 +31,6 @@ html, body {
   flex-direction:row;
 }
 
-
 .newsboard {
   position: absolute;
   top:0px;
@@ -39,7 +38,6 @@ html, body {
   bottom:0px;
   width:200px;
 }
-
 
 .interactionboard {
   position: absolute;
