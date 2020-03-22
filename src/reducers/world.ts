@@ -19,7 +19,7 @@ type WorldState = {
   money: number,
   round: number,
   selectedRegion?: number,
-  queuedActions: Array<{action: any, region: Region}>,
+  queuedActions: Array<{action: any, regionId: number}>,
   events: Array<Event>,
   overallInfectionRate: number,
 }
@@ -71,7 +71,7 @@ const world = (state = initialState, action: any) => {
         queuedActions: [
           ...state.queuedActions,
           {
-            region: state.selectedRegion,
+            regionId: state.selectedRegion,
             action: userAction,
           }
         ]
@@ -92,6 +92,8 @@ function clamp(min: number, max: number, val: number) {
 
 
 function applyAction(action: Action, region: Region): Region {
+  console.log("applying " + action.name + " to region " + region.name);
+
   // happiness can be anything between -100% (pure hate) and 200% (exaggerated happiness)
   region.happiness = clamp(-1, 2, region.happiness * (1 - (action.satisfaction / 100)))
 
@@ -105,10 +107,31 @@ function nextRound(state: WorldState): WorldState {
   // increment clock and money
   let new_state = Object.assign({}, state, {
       round: state.round + 1,
-      money: state.money + 100 // constant money gain
+      money: state.money + 100, // constant money gain
+      queuedActions: [],
   });
 
+  // apply queued actions
+  state.queuedActions.forEach(queuedAction => {
+    applyAction(queuedAction.action, new_state.regions[queuedAction.regionId])
+  });
 
+  // apply effects of game events
+  // ...
+
+  // caculate new infections for every round
+  new_state.regions = new_state.regions.map(oldRegion  => {
+    let region:Region = Object.assign({}, oldRegion, {});
+
+    // calculate new infections etc
+    let new_infections = region.lastRoundNewInfections * region.reproductionRate * region.infectionModifier;
+    region.lastRoundNewInfections = new_infections;
+
+    region.infectionRate = Math.min(region.infectionRate + (new_infections / region.population), 1);
+    return region;
+  });
+
+  // apply fixed new infections
   if (new_state.round == 1) {
     // assign initial infection
     new_state.regions[0].infectionRate = 0.2;
@@ -119,27 +142,6 @@ function nextRound(state: WorldState): WorldState {
       //{ title: "Initial Infection in Europe", round: new_state.round },
     ];
     new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
-  } else {
-
-    // apply measures
-    let action: Action = actionList.actions[0];
-
-    let region = new_state.regions[0];
-
-    region = applyAction(action, region);
-
-    console.log(region)
-
-    // apply effects of game events
-    // ...
-
-    // calculate new infections etc
-    let new_infections = region.lastRoundNewInfections * region.reproductionRate * region.infectionModifier;
-    region.lastRoundNewInfections = new_infections;
-
-    region.infectionRate = Math.min(region.infectionRate + (new_infections / region.population), 1);
-
-    new_state.regions[0] = region;
   }
 
   // calculate total injection rate
