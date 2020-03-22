@@ -63,7 +63,7 @@ class App extends React.Component<MyProps, MyState> {
             </a>
 
           </div>
-          <div className="center">Unplague</div>
+          <div className="center"><h1>Unplague</h1></div>
           <div className="right"></div>
         </div>
         <div className="content">
@@ -74,7 +74,7 @@ class App extends React.Component<MyProps, MyState> {
           {/* <RegionList /> */}
           <MainMap regions={regions} />
           <div className="interactionboard">
-            <div className="innerboard">
+            <div className="innerboard regionboard">
               <RegionStats />
             </div>
             <div className="innerboard scollable"><ActionList /></div>
