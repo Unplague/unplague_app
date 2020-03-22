@@ -241,22 +241,29 @@ h3
     font-size: 0.8em
 
 .ProgressMeter
-    background: green
     position: relative
     text-align: center
     margin: 5px 0px
     border: 0px
+    background-color: #eee;
 
 .ProgressMeter::-webkit-progress-bar
     background-color: #eee;
     position: relative
 
-.ProgressMeter.good
+.ProgressMeter.good::-webkit-progress-value
     background: green
 .ProgressMeter.warning::-webkit-progress-value
     background: yellow
 .ProgressMeter.danger::-webkit-progress-value
     background: red
+
+.ProgressMeter.good::-moz-progress-bar
+    background-color: green
+.ProgressMeter.warning::-moz-progress-bar
+    background-color: yellow
+.ProgressMeter.danger::-moz-progress-bar
+    background-color: red
 
 .ProgressMeter:before
     content: attr(data-label)
