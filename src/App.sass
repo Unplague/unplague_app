@@ -47,12 +47,13 @@ h3
 	img
 		margin: 20px
 	button 
-		margin-top: 20px
-		height: 150px 
-		width: 250px 
+		margin: 20px
+		height: 100px 
+		width: 200px 
 	div
-		text-align: justify
-		margin: 50px
+		text-align: center
+		margin-left: 15%
+		margin-right: 15%
 
 .header 
 	height: 100px 
@@ -169,13 +170,13 @@ h3
 				width: 100%
 
 		.regionboard
-			height: 200px
-			max-height: 300px
+			height: 220px;
+			max-height: 400px
 	
 
 		.scrollable
 			overflow: auto
-			max-height: 55vh
+			max-height: 50vh
 
 		.roundboard
 			height: auto
@@ -224,3 +225,32 @@ h3
 
 .tpp
 	font-size: 0.8em
+
+.ProgressMeter
+    background: green
+    position: relative
+    text-align: center
+    margin: 5px 0px
+
+.ProgressMeter::-webkit-progress-bar
+	background-color: #eee;
+	position: relative
+
+.ProgressMeter.good
+	background: green
+.ProgressMeter.warning::-webkit-progress-value
+	background: yellow
+.ProgressMeter.danger::-webkit-progress-value
+	background: red
+
+.ProgressMeter:before
+	content: attr(data-label)
+	font-size: 0.8em
+	vertical-align: 0
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	z-index: 100
+	color: black
