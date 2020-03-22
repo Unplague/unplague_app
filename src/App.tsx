@@ -63,7 +63,7 @@ class App extends React.Component<MyProps, MyState> {
           <div className="right"></div>
         </div>
         <div className="content">
-          <div className="interactionboard">
+          <div className="interactionboard eventboard">
           <div className="innerboard"><RoundControl /></div>
           <div className="innerboard"><EventFeed /></div>
           </div>
