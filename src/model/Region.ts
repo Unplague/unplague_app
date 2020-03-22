@@ -3,7 +3,7 @@ import defaultActions from '../data/actions.json';
 export class Region {
 
     public reproductionRate: number = 2; // constant
-    public happiness: number = 1.0;
+    public happiness: number = 1;
     public infectionRate: number = 0.0; // percent
     public actionList: Array<any> = [];
     public lastRoundNewInfections: number = 0;
@@ -15,6 +15,7 @@ export class Region {
         public population: number, // constant
     ){
         this.actionList = defaultActions.local.map(action => Object.assign({}, action, {
+            "costs": action.base_costs,
             "used": false,
             "global": false,
         }))

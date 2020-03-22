@@ -38,18 +38,18 @@ const RoundControl = (props: any) => {
                 </div>
                 <div className="data">
                     <div className="round">
+                        Ressources:
+                    </div>
+                    <div className="value">{props.money} <span className="tpp">🧻</span></div>
+                </div>
+                <div className="data">
+                    <div className="round">
                         Overall Infection:
                     </div>
                     <div className="value">{Math.round(props.infectionRate * 100)}%</div>
                 </div>
                 <div className="data">
                     <ProgressMeter value={props.infectionRate} highIsGood={false}></ProgressMeter>
-                </div>
-                <div className="data">
-                    <div className="round">
-                        Ressources:
-                    </div>
-                    <div className="value">{props.money} <span className="tpp">🧻</span></div>
                 </div>
                 <div className="nextButton">
                     <button onClick={() => store.dispatch(nextRound())}>

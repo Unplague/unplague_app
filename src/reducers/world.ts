@@ -1,10 +1,12 @@
 import { Region } from "../model/Region";
 import defaultActions from '../data/actions.json';
+import RegionButton from "../components/RegionButton";
 
 type Action = {
   name: string,
   infection: number,
   satisfaction: number,
+  base_costs: number,
   costs: number,
   used: Boolean,
   global: Boolean,
@@ -37,6 +39,7 @@ const initialState: WorldState = {
   overallInfectionRate: 0.0,
   gameEnded: false,
   globalActions: defaultActions.global.map(action => Object.assign({}, action, {
+    "costs": action.base_costs,
     "used": false,
     "global": true,
   })),
@@ -92,7 +95,6 @@ const world = (state = initialState, action: any) => {
           }
         ]
       });
-
       // update used attribute
       if (action.global || state.selectedRegion === -1) {
         new_state.globalActions = state.globalActions.map((userAction, i) => {
@@ -127,6 +129,34 @@ function applyAction(action: Action, region: Region): Region {
   region.infectionModifier = region.infectionModifier * action.infection
   if(region.infectionModifier <= 0)
     region.infectionModifier = 0.1;
+
+  region.actionList.forEach(action => {
+    let modifier: number = 0;
+
+    if(region.happiness >= 0.9 && region.happiness <= 1) {
+      modifier = 1;
+    } else if(region.happiness >= 0.8 && region.happiness <= 0.89) {
+      modifier = 1.03;
+    } else if(region.happiness >= 0.7 && region.happiness <= 0.79) {
+      modifier = 1.05;
+    } else if(region.happiness >= 0.6 && region.happiness <= 0.69) {
+      modifier = 1.08;
+    } else if(region.happiness >= 0.5 && region.happiness <= 0.59) {
+      modifier = 1.1;
+    } else if(region.happiness >= 0.4 && region.happiness <= 0.49) {
+      modifier = 1.13;
+    } else if(region.happiness >= 0.3 && region.happiness <= 0.39) {
+      modifier = 1.16;
+    } else if(region.happiness >= 0.2 && region.happiness <= 0.29) {
+      modifier = 1.19;
+    } else if(region.happiness >= 0.1 && region.happiness <= 0.19) {
+      modifier = 1.22;
+    } else {
+      modifier = 1.25;
+    }
+    
+    action.costs = Math.floor(action.base_costs * modifier);
+  });
 
   return region;
 }
