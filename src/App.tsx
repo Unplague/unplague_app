@@ -41,9 +41,6 @@ class App extends React.Component<MyProps, MyState> {
   }
 
   handleRegionChange(): void {
-    console.log(store.getState().world.regions)
-    console.log("fghsfdghsdfg")
-
     this.setState({
       regions: store.getState().world.regions
     })
@@ -51,7 +48,6 @@ class App extends React.Component<MyProps, MyState> {
   }
 
   render() {
-    console.log(this.state)
     let position = [0, 0]
     let regions = [];
     if(this.state.lat) {

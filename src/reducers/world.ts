@@ -119,15 +119,20 @@ function nextRound(state: WorldState): WorldState {
   // apply effects of game events
   // ...
 
-  // caculate new infections for every round
+  // caculate new infections for every region
   new_state.regions = new_state.regions.map(oldRegion  => {
     let region:Region = Object.assign({}, oldRegion, {});
 
-    // calculate new infections etc
+    console.log("Calculating new infections for " + region.name +  " modifier=" + oldRegion.infectionModifier + " reprod=" + oldRegion.reproductionRate);
+    console.log("before: infRate=" + oldRegion.infectionRate + " lastRoundNewInfections=" + oldRegion.lastRoundNewInfections);
+
     let new_infections = region.lastRoundNewInfections * region.reproductionRate * region.infectionModifier;
     region.lastRoundNewInfections = new_infections;
 
     region.infectionRate = Math.min(region.infectionRate + (new_infections / region.population), 1);
+
+    console.log("after: newInfections=" + new_infections + " infRate=" + region.infectionRate);
+
     return region;
   });
 
