@@ -5,6 +5,14 @@ import '../../components/EventFeed/EventFeed.css';
 import {store} from '../../index';
 import { connect } from "react-redux";
 
+function createAction(item: any, i: number) {
+    return <div>
+        <button onClick={() => store.dispatch(queueAction(i))} disabled={item.used === true}>
+            {item.name} ({item.costs} ₮)
+        </button>
+    </div>
+}
+
 const ActionList = (props: any) => {
     return (
         <div className="EventContainer">
@@ -12,11 +20,7 @@ const ActionList = (props: any) => {
             <div className="ActionList">
                     {
                         props.actions.map((item: any, i: any) => {
-                        return <div>
-                                <button onClick={() => store.dispatch(queueAction(i))} disabled={item.used === true}>
-                                    {item.name} ({item.costs} ₮)
-                                </button>
-                            </div>
+                            return createAction(item, i);
                         })
                     }
             </div>
