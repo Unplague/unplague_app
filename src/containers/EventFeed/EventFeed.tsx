@@ -2,8 +2,6 @@ import { connect } from "react-redux";
 import React from 'react';
 import EventItem from '../../components/EventFeed/EventItem';
 
-import '../../components/EventFeed/EventFeed.sass';
-
 const EventFeed = (props: any) => {
     
 
