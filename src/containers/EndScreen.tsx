@@ -21,7 +21,7 @@ const EndScreen = (props: any) => {
                 </button>
 
                 <div>
-                <i>Unplague was conceived and developed within less than 48 hours as part of the #wirvsvirus hackathon of the Federal Government in Germany. Do you like the idea? Then give us your like in the public voting on <a href="">YouTube</a>.</i>
+                <i>Unplague was conceived and developed within less than 48 hours as part of the #wirvsvirus hackathon of the Federal Government in Germany. Do you like the idea? Then give us your like in the public voting on <a href="https://www.youtube.com/watch?v=5yFiKWATnWE">YouTube</a>.</i>
                 </div>
 
             </div>
