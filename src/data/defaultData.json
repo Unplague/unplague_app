@@ -5,7 +5,6 @@
         { "name": "North America", "population": 123123 },
         { "name": "South America", "population": 123123 },
         { "name": "Africa", "population": 123123 },
-        { "name": "Oceania", "population": 123123 },
         { "name": "Australia", "population": 123123 }
     ]
 }
