@@ -223,6 +223,16 @@ function nextRound(state: WorldState): WorldState {
 
   //apply fixed new infections
   let newsItems = []
+
+  let factor  = 2;
+
+  if(((new_state.round % factor === 0) || (new_state.round === 1)) && (new_state.round < new_state.regions.length * factor)) {
+    let index = Math.floor(new_state.round / factor) - 1;
+    console.log('Myindex: ' + index);
+    let infectionFactor = (Math.random() * (50 - 1) + 1) / 1000;
+    newsItems.push(createInfection(new_state.regions[index], new_state.round, infectionFactor));
+  }
+  /*
   switch (new_state.round) {
     case 1:
       newsItems.push(createInfection(new_state.regions[0], new_state.round, 0.05));
@@ -238,7 +248,8 @@ function nextRound(state: WorldState): WorldState {
       newsItems.push(createInfection(new_state.regions[2], new_state.round, 0.01));
       newsItems.push(createInfection(new_state.regions[5], new_state.round, 0.01));
       break;
-  }
+  }*/
+
   // add news items
   new_state.events = [
     ...new_state.events,
