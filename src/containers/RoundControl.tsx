@@ -5,6 +5,7 @@ import { store } from '..';
 import { nextRound } from '../actions';
 import logo_full from './../assets/logo_full.png'
 import ProgressMeter from '../components/ProgressMeter';
+import ActionQueue from '../components/ActionQueue';
 
 
 const RoundControl = (props: any) => {
@@ -54,8 +55,9 @@ const RoundControl = (props: any) => {
                     <ProgressMeter value={props.infectionRate} highIsGood={false}></ProgressMeter>
                 </div>
                 <div className="nextButton">
+                    <ActionQueue actions={props.queuedActions}></ActionQueue>
                     <button onClick={() => store.dispatch(nextRound())}>
-                        Next Round
+                        Next Round ({props.queuedActions.length} actions) »
                 </button>
                 </div>
             </div>
@@ -68,6 +70,7 @@ const mapStateToProps: any = (state: any) => {
         round: state.world.round,
         money: state.world.money,
         infectionRate: state.world.overallInfectionRate,
+        queuedActions: state.world.queuedActions,
     }
 };
 export default connect(mapStateToProps)(RoundControl);
