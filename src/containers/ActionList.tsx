@@ -15,7 +15,7 @@ function printStat(value: number, negIsGood: boolean) {
 function createAction(item: any, i: number) {
     return <div>
         <button onClick={() => store.dispatch(queueAction(item.global, i))} disabled={item.used === true}>
-            <p className="name">{item.name} ({item.costs} ₮)</p>
+            <p className="name">{item.name} ({item.costs} <span className="tpp">🧻</span>)</p>
             <p className="stats">Infection: {printStat(item.infection, true)}</p>
             <p className="stats">Satisfaction: {printStat(item.satisfaction, false)}</p>
         </button>
