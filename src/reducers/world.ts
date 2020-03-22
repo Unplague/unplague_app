@@ -18,13 +18,13 @@ type WorldState = {
   money: number,
   round: number,
   selectedRegion?: number,
-  queuedActions: Array<{action: any, regionId: number}>,
+  queuedActions: Array<{ action: any, regionId: number }>,
   events: Array<Event>,
   overallInfectionRate: number,
   gameEnded: boolean,
 }
 
-const initialState : WorldState = {
+const initialState: WorldState = {
   regions: [],
   money: 100,
   round: 0,
@@ -62,7 +62,7 @@ const world = (state = initialState, action: any) => {
       if (state.round == 0 || state.gameEnded) {
         return state;
       }
-      let userAction:Action = state.regions[state.selectedRegion].actionList[action.value];
+      let userAction: Action = state.regions[state.selectedRegion].actionList[action.value];
       if (state.money < userAction.costs) {
         alert("You do not have enough money");
         return state;
@@ -84,7 +84,7 @@ const world = (state = initialState, action: any) => {
       return new_state;
     default:
       return state;
-    }
+  }
 };
 
 function clamp(min: number, max: number, val: number) {
@@ -107,9 +107,9 @@ function applyAction(action: Action, region: Region): Region {
 function nextRound(state: WorldState): WorldState {
   // increment clock and money
   let new_state = Object.assign({}, state, {
-      round: state.round + 1,
-      money: state.money + 100, // constant money gain
-      queuedActions: [],
+    round: state.round + 1,
+    money: state.money + 100, // constant money gain
+    queuedActions: [],
   });
 
   // apply queued actions
@@ -120,7 +120,7 @@ function nextRound(state: WorldState): WorldState {
   // apply effects of game events
   // ...
 
-  // caculate new infections for every region
+  // calculate new infections for every region
   new_state.regions = new_state.regions.map(oldRegion  => {
     let region:Region = Object.assign({}, oldRegion, {});
 
@@ -138,16 +138,67 @@ function nextRound(state: WorldState): WorldState {
   });
 
   // apply fixed new infections
-  if (new_state.round == 1) {
-    // assign initial infection
-    new_state.regions[0].infectionRate = 0.2;
+  // if (new_state.round == 1) {
+  //   // assign initial infection
+  //   new_state.regions[0].infectionRate = 0.2;
 
-    new_state.events= [
-      ...state.events,
-      { title: "Initial Infection in Asia", round: new_state.round },
-      //{ title: "Initial Infection in Europe", round: new_state.round },
-    ];
-    new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
+  //   new_state.events= [
+  //     ...state.events,
+  //     { title: "Initial Infection in Asia", round: new_state.round },
+  //     //{ title: "Initial Infection in Europe", round: new_state.round },
+  //   ];
+  //   new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
+  // }
+
+  //apply fixed new infections
+  switch (new_state.round) {
+    case 1:
+      //assign infection
+      new_state.regions[0].infectionRate = 0.05;
+      new_state.regions[1].infectionRate = 0.005;
+
+      //Push to news
+      new_state.events = [
+        ...state.events,
+        { title: "Initial Infection in Asia", round: new_state.round },
+        { title: "Initial Infection in Europe", round: new_state.round },
+      ];
+
+      //Calculate infections
+      new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
+      new_state.regions[1].lastRoundNewInfections = new_state.regions[1].infectionRate * new_state.regions[1].population;
+      break;
+    case 2:
+      new_state.regions[4].infectionRate = 0.005;
+
+      new_state.events = [
+        ...state.events,
+        { title: "Initial Infection in Africa", round: new_state.round },
+      ];
+      new_state.regions[4].lastRoundNewInfections = new_state.regions[4].infectionRate * new_state.regions[4].population;
+      break;
+    case 3:
+      new_state.regions[3].infectionRate = 0.01;
+
+
+      new_state.events = [
+        ...state.events,
+        { title: "Initial Infection in South America", round: new_state.round },
+      ];
+      new_state.regions[3].lastRoundNewInfections = new_state.regions[3].infectionRate * new_state.regions[3].population;
+      break;
+    case 4:
+      new_state.regions[2].infectionRate = 0.01;
+      new_state.regions[6].infectionRate = 0.01;
+
+      new_state.events = [
+        ...state.events,
+        { title: "Initial Infection in North America", round: new_state.round },
+        { title: "Initial Infection in Australia", round: new_state.round },
+      ];
+      new_state.regions[2].lastRoundNewInfections = new_state.regions[2].infectionRate * new_state.regions[2].population;
+      new_state.regions[6].lastRoundNewInfections = new_state.regions[6].infectionRate * new_state.regions[6].population;
+      break;
   }
 
   // calculate total injection rate
@@ -167,4 +218,3 @@ function nextRound(state: WorldState): WorldState {
 }
 
 export default world;
-  
