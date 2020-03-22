@@ -81,7 +81,6 @@ class App extends React.Component<MyProps, MyState> {
           <div className="left">Left</div>
           <div className="center">Center</div>
           <div className="right">Right</div>
-          <EndScreen></EndScreen>
         </div>
       </div>
     );
