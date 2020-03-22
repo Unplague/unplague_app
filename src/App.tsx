@@ -11,6 +11,7 @@ import { store } from './index';
 import EndScreen from './containers/EndScreen';
 
 import wvw_logo from './assets/wvw_logo.png'
+import logo from './assets/wvw_logo.png'
 
 interface MyProps {
 
@@ -58,10 +59,7 @@ class App extends React.Component<MyProps, MyState> {
       <div className="app">
         <div className="header">
           <div className="left">
-            <a href="#">
-              <img src={wvw_logo} width="200px"></img>
-            </a>
-
+            Icon
           </div>
           <div className="center"><h1>Unplague</h1></div>
           <div className="right"></div>
@@ -82,9 +80,23 @@ class App extends React.Component<MyProps, MyState> {
           </div>
         </div>
         <div className="footer">
-          <div className="left">Left</div>
-          <div className="center">Center</div>
-          <div className="right">Right</div>
+          <div className="left">
+            <a href="#">
+              <img src={wvw_logo} width="250px"></img>
+            </a>
+          </div>
+          <div className="center">
+            <div>
+              <a href="https://wirvsvirushackathon.org/">#WirVsVirus Hackathon</a>
+            </div>
+            <div>
+              <a href="https://devpost.com/software/coronafighter">DEVPOST Project</a>
+            </div>
+            <div>
+              <a href="https://github.com/Unplague/unplague_app">GitHub Project</a>
+            </div>
+          </div>
+          <div className="right"></div>
         </div>
       </div>
     );

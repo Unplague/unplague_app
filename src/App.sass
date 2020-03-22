@@ -67,7 +67,7 @@ h3
 		width: 200px
 
 .footer 
-	height: 100px 
+	min-height: 50px 
 	display: flex
 	flex-direction: row
 	justify-content: space-between
@@ -76,7 +76,17 @@ h3
     // Left Footer
 	div
 		text-align: center
+	.left
+		width: 300px
+	.center
+		margin-top: 15px
 		flex-grow: 1
+		display: flex
+		flex-direction: column
+		div
+			padding: 2px
+	.right
+		width: 300px
 .content 
 	flex: 1 
 	display: flex 
