@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 
 const ActionList = (props: any) => {
     return (
-        <div className="EventContainer">
+        <div className="ActionContainer">
             <h3>Actions</h3>
-            <div className="EventFeed">
+            <div className="ActionList">
                     {
                         props.actions.map((item: any, i: any) => {
                         return <div>
