@@ -185,56 +185,28 @@ function nextRound(state: WorldState): WorldState {
   // }
 
   //apply fixed new infections
+  let newsItems = []
   switch (new_state.round) {
     case 1:
-      //assign infection
-      new_state.regions[0].infectionRate = 0.05;
-      new_state.regions[1].infectionRate = 0.005;
-
-      //Push to news
-      new_state.events = [
-        ...state.events,
-        { title: "Initial Infection in Asia", round: new_state.round },
-        { title: "Initial Infection in Europe", round: new_state.round },
-      ];
-
-      //Calculate infections
-      new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
-      new_state.regions[1].lastRoundNewInfections = new_state.regions[1].infectionRate * new_state.regions[1].population;
+      newsItems.push(createInfection(new_state.regions[0], new_state.round, 0.05));
+      newsItems.push(createInfection(new_state.regions[1], new_state.round, 0.005));
       break;
     case 3:
-      new_state.regions[4].infectionRate = 0.005;
-
-      new_state.events = [
-        ...state.events,
-        { title: "New Infection in Africa", round: new_state.round },
-      ];
-      new_state.regions[4].lastRoundNewInfections = new_state.regions[4].infectionRate * new_state.regions[4].population;
+      newsItems.push(createInfection(new_state.regions[4], new_state.round, 0.005));
       break;
     case 5:
-      new_state.regions[3].infectionRate = 0.01;
-
-
-      new_state.events = [
-        ...state.events,
-        { title: "New Infection in South America", round: new_state.round },
-      ];
-      new_state.regions[3].lastRoundNewInfections = new_state.regions[3].infectionRate * new_state.regions[3].population;
+      newsItems.push(createInfection(new_state.regions[3], new_state.round, 0.01));
       break;
     case 7:
-      new_state.regions[2].infectionRate = 0.01;
-      new_state.regions[5].infectionRate = 0.01;
-
-      new_state.events = [
-        ...state.events,
-        { title: "New Infection in North America", round: new_state.round },
-        { title: "New Infection in Australia", round: new_state.round },
-      ];
-      new_state.regions[2].lastRoundNewInfections = new_state.regions[2].infectionRate * new_state.regions[2].population;
-      new_state.regions[5].lastRoundNewInfections = new_state.regions[5].infectionRate * new_state.regions[5].population;
+      newsItems.push(createInfection(new_state.regions[2], new_state.round, 0.01));
+      newsItems.push(createInfection(new_state.regions[5], new_state.round, 0.01));
       break;
   }
-
+  // add news items
+  new_state.events = [
+    ...new_state.events,
+    ...newsItems
+  ];
   // calculate total injection rate
   let infectedPopulation = 0;
   let totalPopulation = 0;
@@ -249,6 +221,17 @@ function nextRound(state: WorldState): WorldState {
     new_state.gameEnded = true;
   }
   return new_state;
+}
+
+function createInfection(region: Region, round: number, rate: number) {
+  // assign infection
+  region.infectionRate = rate;
+
+  // calculate infections
+  region.lastRoundNewInfections = region.infectionRate * region.population;
+
+   // return news item
+  return { title: "⚠️ New infection in " + region.name, round: round };
 }
 
 export default world;

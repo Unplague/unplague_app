@@ -11,6 +11,7 @@ import { store } from './index';
 import EndScreen from './containers/EndScreen';
 
 import wvw_logo from './assets/wvw_logo.png'
+import logo from './assets/wvw_logo.png'
 
 interface MyProps {
 
@@ -58,33 +59,50 @@ class App extends React.Component<MyProps, MyState> {
       <div className="app">
         <div className="header">
           <div className="left">
-            <a href="#">
-              <img src={wvw_logo} width="200px"></img>
-            </a>
-
+            Icon
           </div>
-          <div className="center">Unplague</div>
+          <div className="center"><h1>Unplague</h1></div>
           <div className="right"></div>
         </div>
         <div className="content">
           <div className="interactionboard eventboard">
           <div className="innerboard"><RoundControl /><EndScreen/></div>
-          <div className="innerboard"><EventFeed /></div>
+          <div className="innerboard scrollable"><EventFeed /></div>
           </div>
           {/* <RegionList /> */}
           <MainMap regions={regions} />
           <div className="interactionboard">
-            <div className="innerboard">
+            <div className="innerboard regionboard">
               <RegionStats />
             </div>
-            <div className="innerboard scollable"><ActionList /></div>
+            <div className="innerboard scrollable"><ActionList /></div>
 
           </div>
         </div>
         <div className="footer">
-          <div className="left">Left</div>
-          <div className="center">Center</div>
-          <div className="right">Right</div>
+          <div className="left">
+            <a href="#">
+              <img src={wvw_logo} width="250px"></img>
+            </a>
+          </div>
+          <div className="center">
+            <div>
+              <a href="https://wirvsvirushackathon.org/" target="_blank">
+                #WirVsVirus Hackathon
+              </a>
+            </div>
+            <div>
+              <a href="https://devpost.com/software/coronafighter" target="_blank">
+                DEVPOST Project
+              </a>
+            </div>
+            <div>
+              <a href="https://github.com/Unplague/unplague_app" target="_blank">
+                GitHub Project
+              </a>
+            </div>
+          </div>
+          <div className="right"></div>
         </div>
       </div>
     );
