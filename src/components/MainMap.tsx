@@ -5,6 +5,8 @@ import 'leaflet-css';
 import './MainMap.css';
 import continents from '../data/continents.json';
 import * as turf from '@turf/turf'
+import { selectRegion } from "../actions";
+import {store} from '../index';
 
 class MainMap extends React.Component<{regions:{name: string, population: number, infectionRate: number, reproductionRate: number, happiness: number}[]}, { lat: number, lng: number, zoom: number, activeRegion: string  }> {
 
@@ -53,7 +55,10 @@ class MainMap extends React.Component<{regions:{name: string, population: number
             let poly = turf.multiPolygon(continents.features[i].geometry.coordinates);
             if (turf.booleanPointInPolygon(pt, poly)) newActiveRegion = continents.features[i].properties.CONTINENT;
         }
-        console.log(newActiveRegion) /* ToDo change buttons to select */
+  
+        let regionId = this.props.regions.map(function(e, i) { return e.name; }).indexOf(newActiveRegion);
+        store.dispatch(selectRegion(regionId));
+
         this.setState({activeRegion: newActiveRegion});
     }
 

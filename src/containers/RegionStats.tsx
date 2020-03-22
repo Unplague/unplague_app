@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import '../components/RegionStats.css';
 
 const RegionStats = (props: any) => {
-    let region:Region = props.region;
+    let region: Region = props.region;
     if (region === undefined) {
         return (
             <div className="RegionStats">
