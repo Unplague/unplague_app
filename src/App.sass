@@ -108,7 +108,7 @@ h3
 	.interactionboard 
 		flex-direction: column
 		flex-grow: 0
-		width: 220px 
+		width: 300px 
 		length: 100vh
 		
 		.stats
@@ -128,22 +128,34 @@ h3
 			padding: 10px
 			padding-top: 10px		
 			box-sizing: border-box
-			width: 220px 
+			width: 100% 
 			border: 10px solid $backgroundcolor
   			margin: 0px
 			background-color: $contrastcolor
 
+			h3, h4, p
+				margin: 0
+				padding: 0
+			
+			h3, h4
+				margin-bottom: 5px
+			
+			progress
+				width: 100%
+
 		.regionboard
-			height: 300px
+			height: 200px
 			max-height: 300px
 	
 
 		.scollable
 			overflow: auto
-			max-height: 50vh
+			max-height: 55vh
 
 
 .ActionList
+	margin-bottom: 10px
+
 	button
 		border: 1px solid black
 		display: block
@@ -161,6 +173,7 @@ h3
 			cursor: pointer
 
 		&:disabled
+			background-color: $backgroundcolor
 			opacity: 0.5
 			cursor: unset
 
@@ -170,7 +183,7 @@ h3
 
 		p.name
 			font-weight: bold
-			margin-bottom: 5px
+			margin-bottom: 5px !important
 
 		p.stats
 			font-size: 0.8em
