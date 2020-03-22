@@ -11,7 +11,7 @@ import { store } from './index';
 import EndScreen from './containers/EndScreen';
 
 import wvw_logo from './assets/wvw_logo.png'
-import logo from './assets/wvw_logo.png'
+import logo_full_2 from './assets/logo_full_2.png'
 
 interface MyProps {
 
@@ -58,15 +58,13 @@ class App extends React.Component<MyProps, MyState> {
     return (
       <div className="app">
         <div className="header">
-          <div className="left">
-            Icon
-          </div>
-          <div className="center"><h1>Unplague</h1></div>
+          <div className="left"></div>
+          <div className="center"><h1>unplague</h1></div>
           <div className="right"></div>
         </div>
         <div className="content">
           <div className="interactionboard eventboard">
-          <div className="innerboard"><RoundControl /><EndScreen/></div>
+          <div className="innerboard roundboard"><RoundControl /><EndScreen/></div>
           <div className="innerboard scrollable"><EventFeed /></div>
           </div>
           {/* <RegionList /> */}
@@ -102,7 +100,9 @@ class App extends React.Component<MyProps, MyState> {
               </a>
             </div>
           </div>
-          <div className="right"></div>
+          <div className="right">
+              <img src={logo_full_2} ></img>
+          </div>
         </div>
       </div>
     );

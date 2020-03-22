@@ -12,14 +12,18 @@ const EndScreen = (props: any) => {
                 <div>
                     Overall Infecton: {Math.round(props.infectionRate*100)}% <br />
                     Rounds played: {props.round} <br />
-                    Money: {props.money} ₮ <br />
+                    Ressources: {props.money} 🧻 <br />
                 </div>
                     
-                <div>
+                
                 <button onClick={() => window.location.reload()}>
-                    Restart Game
+                    <h2>Restart Game</h2>
                 </button>
+
+                <div>
+                <i>Unplague was conceived and developed within less than 48 hours as part of the #wirvsvirus hackathon of the Federal Government in Germany. Do you like the idea? Then give us your like in the public voting on <a href="">YouTube</a>.</i>
                 </div>
+
             </div>
         );
     } else {

@@ -12,10 +12,10 @@ function printStat(value: number, negIsGood: boolean) {
     return <span className={className}>{ perc < 0 ? "" : "+" }{perc.toFixed(0)} %</span>
 }
 
-function createAction(item: any, i: number) {
+function createAction(item: any, i: number, money: number) {
     return <div>
-        <button onClick={() => store.dispatch(queueAction(item.global, i))} disabled={item.used === true}>
-            <p className="name">{item.name} ({item.costs} ₮)</p>
+        <button onClick={() => store.dispatch(queueAction(item.global, i))} disabled={item.used === true || item.costs > money} className={item.costs > money ? "expensive" : ""}>
+            <p className="name">{item.name} (<span className="price">{item.costs}</span> <span className="tpp">🧻</span>)</p>
             <p className="stats">Infection: {printStat(item.infection, true)}</p>
             <p className="stats">Satisfaction: {printStat(item.satisfaction, false)}</p>
         </button>
@@ -30,7 +30,7 @@ const ActionList = (props: any) => {
             <div className="ActionList">
                     {
                         props.globalActions.map((item: any, i: any) => {
-                            return createAction(item, i);
+                            return createAction(item, i, props.money);
                         })
                     }
             </div>
@@ -38,7 +38,7 @@ const ActionList = (props: any) => {
             <div className="ActionList">
                     {
                         props.localActions.map((item: any, i: any) => {
-                            return createAction(item, i);
+                            return createAction(item, i, props.money);
                         })
                     }
             </div>
@@ -50,6 +50,7 @@ const mapStateToProps: any = (state: any) => {
     return {
         localActions: (state.world.selectedRegion === -1) ? [] : state.world.regions[state.world.selectedRegion].actionList,
         globalActions: state.world.globalActions,
+        money: state.world.money,
     }
   };
 
