@@ -47,7 +47,7 @@ const RoundControl = (props: any) => {
                 </div>
                 <div className="data">
                     <div className="round">
-                        Overall Infection:
+                        Overall Infection: <span title="You will loose the game with an infection above 70%." style={{color: "red"}}>⁉️</span>
                     </div>
                     <div className="value">{Math.round(props.infectionRate * 100)}%</div>
                 </div>

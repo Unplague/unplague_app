@@ -31,7 +31,7 @@ const RegionStats = () => {
             <div className="RegionStats board">
                 <h3>{region.name}</h3>
                 <p>Population: {Math.round(region.population / 1_000_000)} Mio.</p>
-                <p>Infected: {getTrendIndicator(region.infectionTrend)} <span title="Keep the infection rate low continue the game." style={{color: "red"}}>⁉️</span></p>
+                <p>Infected: <span title="Keep the infection rate low continue the game." style={{color: "red"}}>⁉️</span></p>
                 <ProgressMeter value={region.infectionRate} highIsGood={false}></ProgressMeter>
                 <p>Happiness: <span title="Try to keep up the happiness of the population. Low happiness increases the costs of actions." style={{color: "red"}}>⁉️</span></p>
                 <ProgressMeter value={region.happiness} highIsGood={true}></ProgressMeter>
