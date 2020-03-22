@@ -1,7 +1,5 @@
 import actionList from '../data/actions.json';
 import { Region } from "../model/Region";
-import { store } from '..';
-import { addEvent } from '../actions';
 
 type Action = {
   name: string,
@@ -11,12 +9,18 @@ type Action = {
   used: Boolean,
 }
 
+type Event = {
+  title: string,
+  round: number,
+}
+
 type WorldState = {
   regions: Array<Region>,
   money: number,
   round: number,
   selectedRegion?: number,
   queuedActions: Array<{action: any, region: Region}>,
+  events: Array<Event>
 }
 
 const initialState : WorldState = {
@@ -25,6 +29,7 @@ const initialState : WorldState = {
   round: 0,
   selectedRegion: undefined,
   queuedActions: [],
+  events: [],
 }
 
 const world = (state = initialState, action: any) => {
@@ -106,12 +111,20 @@ function nextRound(state: WorldState): WorldState {
     // assign initial infection
     new_state.regions[0].infectionRate = 0.7;
 
+    new_state.events= [
+      ...state.events,
+      { title: "Initial Infection in Asia", round: new_state.round },
+      { title: "Initial Infection in Europe", round: new_state.round },
+    ];
+  }
+
     // maybe change this...
     new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
   }
 
   // apply measures
-  let action: any = actionList.actions[0];
+  let action: Action = actionList.actions[0];
+
   let region = new_state.regions[0];
 
   region = applyAction(action, region);

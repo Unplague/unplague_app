@@ -5,17 +5,6 @@ export const addInform = (value: number) => ({
     value
 });
 
-export const addRandomEvent = (week: number) => ({
-    type: 'ADD_RANDOM_EVENT',
-    week
-});
-
-export const addEvent = (title: string, week: number) => ({
-    type: 'ADD_EVENT',
-    title,
-    week
-});
-
 export const executeAction = (value: number) => ({
     type: 'QUEUE_ACTION',
     value

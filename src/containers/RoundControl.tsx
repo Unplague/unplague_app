@@ -2,17 +2,13 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { store } from '..';
-import { nextRound, addEvent } from '../actions';
+import { nextRound } from '../actions';
 
 const RoundControl = (props: any) => {
     if (props.round == 0) {
         return (
             <div className="start-button-container">
-                <button onClick={() => {
-                    store.dispatch(nextRound());
-                    store.dispatch(addEvent("New Infection in Asia", 1));
-                    store.dispatch(addEvent("New Infection in Europe", 1));
-                }}>
+                <button onClick={() => {store.dispatch(nextRound());}}>
                     Start Game
                 </button>
             </div>

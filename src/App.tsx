@@ -70,12 +70,10 @@ class App extends React.Component<MyProps, MyState> {
           <MainMap regions={regions}/>
           <div className="interactionboard">
             <RegionStats />
-            Interaction Board
             <ActionList />
           </div>
         </div>
         <div className="footer">
-          Statusinfo
           <RoundControl />
           <InformedStatus></InformedStatus></div>
       </div> 

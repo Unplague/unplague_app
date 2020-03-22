@@ -2,14 +2,14 @@ import React, { FunctionComponent } from 'react';
 import './EventFeed.css';
 
 type EventItemProps = {
-    week: Date,
+    round: number,
     title: string,
 }
 
-const EventItem: FunctionComponent<EventItemProps> = ({ title, week }: any) => (
+const EventItem: FunctionComponent<EventItemProps> = ({ title, round }: any) => (
     <div>
         <div className="EventDate">
-            Week {week}
+            Round {round}
         </div>
         <div className="EventTitle"> {title} </div>
     </div>
