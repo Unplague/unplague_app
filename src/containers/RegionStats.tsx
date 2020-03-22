@@ -1,8 +1,5 @@
 import React from 'react';
 
-import { Region } from '../model/Region';
-import { connect } from 'react-redux';
-
 import { store } from '../index';
 
 const RegionStats = () => {

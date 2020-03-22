@@ -1,6 +1,6 @@
-import { queueAction as queueAction } from "../../actions";
+import { queueAction as queueAction } from "../actions";
 import React from 'react';
-import {store} from '../../index';
+import {store} from '../index';
 import { connect } from "react-redux";
 
 function createAction(item: any, i: number) {

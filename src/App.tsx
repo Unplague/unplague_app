@@ -1,13 +1,10 @@
 import React from 'react';
 import './App.sass';
-import AddInformMeasure from './containers/AddInformMeasure'
 import MainMap from './components/MainMap'
-import InformedStatus from './containers/InformedStatus';
 
-import EventFeed from './containers/EventFeed/EventFeed'
-import ActionList from './containers/Actions/ActionList';
+import EventFeed from './containers/EventFeed'
+import ActionList from './containers/ActionList';
 import RegionStats from './containers/RegionStats';
-//import RegionList from './containers/RegionList';
 import RoundControl from './containers/RoundControl';
 
 import { store } from './index';
