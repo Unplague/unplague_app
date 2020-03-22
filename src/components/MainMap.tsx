@@ -81,20 +81,17 @@ class MainMap extends React.Component<{regions:{name: string, population: number
         if (region.infectionRate >= 1) {
             svg_string = dead_svg;
         }
-        else if (region.happiness <= 0.2) {
+        else if (region.happiness <= 0.3) {
             svg_string = angry_svg;            
         }
-        else if (region.happiness <= 0.4) {
+        else if (region.happiness <= 0.5) {
             svg_string = frown_svg;            
         }
-        else if (region.happiness <= 0.6) {
+        else if (region.happiness <= 0.8) {
             svg_string = meh_svg;            
         }
-        else if (region.happiness <= 0.8) {
-            svg_string = smile_svg;
-        } 
         else {
-            svg_string = grin_alt_svg;            
+            svg_string = smile_svg;
         }
         return icon({
             iconUrl: encodeURI("data:image/svg+xml," + svg_string).replace('#','%23'),
