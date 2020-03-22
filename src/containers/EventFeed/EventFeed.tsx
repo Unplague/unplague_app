@@ -2,8 +2,6 @@ import { connect } from "react-redux";
 import React from 'react';
 import EventItem from '../../components/EventFeed/EventItem';
 
-import AddEventButton from './AddEventButton'
-
 import '../../components/EventFeed/EventFeed.css';
 
 const EventFeed = (props: any) => {
@@ -12,12 +10,11 @@ const EventFeed = (props: any) => {
     return (
         <div className="EventContainer">
             <h3>Events</h3>
-            <AddEventButton />
             <div className="EventFeed">
                 <ul>
                     {
                         props.events.map((item: any, i: any) => {
-                            return <EventItem key={i} title={item.title} week={item.week} />
+                            return <EventItem key={i} title={item.title} round={item.round} />
                         })
                     }
                 </ul>
@@ -28,10 +25,8 @@ const EventFeed = (props: any) => {
 
 const mapStateToProps: any = (state: any) => {
     return {
-        events: state.events
+        events: state.world.events
     }
 };
-
-
 
 export default connect(mapStateToProps)(EventFeed);
