@@ -204,7 +204,7 @@ function nextRound(state: WorldState): WorldState {
 
       new_state.events = [
         ...state.events,
-        { title: "Initial Infection in Africa", round: new_state.round },
+        { title: "New Infection in Africa", round: new_state.round },
       ];
       new_state.regions[4].lastRoundNewInfections = new_state.regions[4].infectionRate * new_state.regions[4].population;
       break;
@@ -214,7 +214,7 @@ function nextRound(state: WorldState): WorldState {
 
       new_state.events = [
         ...state.events,
-        { title: "Initial Infection in South America", round: new_state.round },
+        { title: "New Infection in South America", round: new_state.round },
       ];
       new_state.regions[3].lastRoundNewInfections = new_state.regions[3].infectionRate * new_state.regions[3].population;
       break;
@@ -224,8 +224,8 @@ function nextRound(state: WorldState): WorldState {
 
       new_state.events = [
         ...state.events,
-        { title: "Initial Infection in North America", round: new_state.round },
-        { title: "Initial Infection in Australia", round: new_state.round },
+        { title: "New Infection in North America", round: new_state.round },
+        { title: "New Infection in Australia", round: new_state.round },
       ];
       new_state.regions[2].lastRoundNewInfections = new_state.regions[2].infectionRate * new_state.regions[2].population;
       new_state.regions[6].lastRoundNewInfections = new_state.regions[6].infectionRate * new_state.regions[6].population;
