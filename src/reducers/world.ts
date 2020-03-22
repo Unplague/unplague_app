@@ -98,7 +98,9 @@ function applyAction(action: Action, region: Region): Region {
   region.happiness = clamp(-1, 2, region.happiness * (1 - (action.satisfaction / 100)))
 
   // infectionRate can be anything between 0% and 100%
-  region.infectionModifier = clamp(0, 1, region.infectionModifier * (1 - (action.infection / 100)))
+  region.infectionModifier = region.infectionModifier * action.infection 
+  if(region.infectionModifier <= 0)
+    region.infectionModifier = 0.1;
 
   return region;
 }
