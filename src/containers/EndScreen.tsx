@@ -10,7 +10,7 @@ const EndScreen = (props: any) => {
                 <div><h2>Congratulations</h2></div>
                 <div>You have successfully contained the virus</div>
                 <div>
-                    Overall Infecton: {Math.round(props.infectionRate*100)}% <br />
+                    Overall Infection: {Math.round(props.infectionRate*100)}% <br />
                     Rounds played: {props.round} <br />
                     Ressources: {props.money} 🧻 <br />
                 </div>
@@ -31,7 +31,7 @@ const EndScreen = (props: any) => {
                 <div><h2>Game Over</h2></div>
                 <div>You have surpassed the world infection rate of 70%</div>
                 <div>
-                    Overall Infecton: {Math.round(props.infectionRate*100)}% <br />
+                    Overall Infection: {Math.round(props.infectionRate*100)}% <br />
                     Rounds played: {props.round} <br />
                     Ressources: {props.money} 🧻 <br />
                 </div>
