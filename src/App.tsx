@@ -87,13 +87,19 @@ class App extends React.Component<MyProps, MyState> {
           </div>
           <div className="center">
             <div>
-              <a href="https://wirvsvirushackathon.org/">#WirVsVirus Hackathon</a>
+              <a href="https://wirvsvirushackathon.org/" target="_blank">
+                #WirVsVirus Hackathon
+              </a>
             </div>
             <div>
-              <a href="https://devpost.com/software/coronafighter">DEVPOST Project</a>
+              <a href="https://devpost.com/software/coronafighter" target="_blank">
+                DEVPOST Project
+              </a>
             </div>
             <div>
-              <a href="https://github.com/Unplague/unplague_app">GitHub Project</a>
+              <a href="https://github.com/Unplague/unplague_app" target="_blank">
+                GitHub Project
+              </a>
             </div>
           </div>
           <div className="right"></div>
