@@ -17,7 +17,7 @@ function createAction(item: any, i: number, money: number) {
         <button onClick={() => store.dispatch(queueAction(item.global, i))} disabled={item.used === true || item.costs > money} className={item.costs > money ? "expensive" : ""}>
             <p className="name">{item.name} (<span className="price">{item.costs}</span> <span className="tpp">🧻</span>)</p>
             <p className="stats">Infection: {printStat(item.infection, true)}</p>
-            <p className="stats">Satisfaction: {printStat(item.satisfaction, false)}</p>
+            <p className="stats">Happiness: {printStat(item.satisfaction, false)}</p>
         </button>
     </div>
 }
