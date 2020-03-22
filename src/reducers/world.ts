@@ -105,6 +105,8 @@ function nextRound(state: WorldState): WorldState {
   if (new_state.round == 1) {
     // assign initial infection
     new_state.regions[0].infectionRate = 0.7;
+
+    // maybe change this...
     new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
   }
 
