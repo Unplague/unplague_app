@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.sass';
 import AddInformMeasure from './containers/AddInformMeasure'
 import MainMap from './components/MainMap'
 import InformedStatus from './containers/InformedStatus';
