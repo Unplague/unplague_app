@@ -28,10 +28,11 @@ body
 
 .start-button-container 
 	position: absolute 
-	top: 10% 
-	left: 5% 
-	bottom: 10% 
-	right: 5% 
+	top: 0 
+	left: 0 
+	bottom: 0 
+	right: 0
+	z-index: 50
 	background: rgba(0,0,0,0.7) 
 	display: flex 
 	align-items: center 
@@ -46,11 +47,34 @@ body
 	font-size: 26px 
 	font-weight: bold 
 	color: $textcolor
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+	.left
+		width: 200px
+		font-size: 14px
+	.center
+		flex-grow: 1
+		text-align: center
+	.right
+		width: 200px
 
 .footer 
 	height: 100px 
+	display: flex
+	flex-direction: row
+	justify-content: space-between
 	color: $textcolor
-
+	background-color: black
+    // Left Footer
+	.left
+		min-width: 100px
+   // Center Footer
+	.center
+		min-width: 100px
+   // Right Footer
+	.right
+		min-width: 100px
 .content 
 	flex: 1 
 	display: flex 

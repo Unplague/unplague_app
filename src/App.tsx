@@ -61,7 +61,11 @@ class App extends React.Component<MyProps, MyState> {
 
     return (
       <div className="app">
-        <div className="header">Unplague</div>
+        <div className="header">
+          <div className="left"><RoundControl /></div>
+          <div className="center">Unplague</div>
+          <div className="right">sdfsdf</div>
+        </div>
         <div className="content">
           <div className="eventboard">
             <EventFeed/>
@@ -74,8 +78,10 @@ class App extends React.Component<MyProps, MyState> {
           </div>
         </div>
         <div className="footer">
-          <RoundControl />
-          <InformedStatus></InformedStatus></div>
+          <div className="left">Left</div>
+          <div className="center">Center</div>
+          <div className="right">Right</div>
+        </div>
       </div> 
     );
   }

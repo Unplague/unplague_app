@@ -15,13 +15,19 @@ const RoundControl = (props: any) => {
         );
     } else {
         return (
-            <p>
-                Current round: {props.round} <br />
-                Money: {props.money} ₮ <br />
+            <div>
+                <div>
+                    Current round: {props.round}
+                </div>
+                <div>
                 <button onClick={() => store.dispatch(nextRound())}>
                     Next Round
                 </button>
-            </p>
+                </div>
+                <div>
+                Money: {props.money} ₮
+                </div>
+            </div>
         );
     }
 };
