@@ -127,16 +127,29 @@ body
 		text-align: left
 		padding: 10px 5px
 		margin-bottom: 5px
+		background-color: $backgroundcolor
+		color: $textcolor
+		font-family: inherit;
+		font-size: 1em;
+
+		&:hover
+			background-color: lighten($backgroundcolor, 30%)
+			cursor: pointer
+
+		&:disabled
+			opacity: 0.5
+			cursor: unset
 
 		p
 			margin: 0
 			padding: 0
 
-		p.title
+		p.name
 			font-weight: bold
+			margin-bottom: 5px
 
 		p.stats
-			font-size: 0.9em
+			font-size: 0.8em
 
 			.positive
 				color: green
