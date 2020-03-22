@@ -4,7 +4,11 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
 // Set your colors
-
+$backgroundcolor: #2B2D42;
+$contrastcolor: #8D99AE;
+$textcolor: #EDF2F4;
+$redcolor: #EF233C
+$reddarkcolor: #D90429
 
 // Update global variables
 $family-sans-serif: 'Nunito', sans-serif;
@@ -22,18 +26,19 @@ body
 	flex-direction: column 
 	height: 100vh 
 	width: 100vw 
-	background-color: #262626 
+    color: $textcolor
+	background-color: $backgroundcolor
 
 .header 
 	height: 50px 
 	padding: 5px 
 	font-size: 26px 
 	font-weight: bold 
-	color: white 
+	color: $textcolor
 
 .footer 
 	height: 100px 
-	color: #ffffff 
+	color: $textcolor
 
 .content 
 	flex: 1 
@@ -43,7 +48,7 @@ body
 .eventboard 
 	flex-shrink: 1 
 	width: 200px 
-	background-color: grey 
+	background-color: $contrastcolor
 
 .interactionboard_buttons 
 	overflow: hidden 
@@ -54,7 +59,7 @@ body
 .interactionboard 
 	flex-shrink: 0 
 	width: 200px 
-	background-color: grey 
+	background-color: $contrastcolor
     
 .start-button-container 
 	position: absolute 
