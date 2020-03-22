@@ -119,7 +119,35 @@ function clamp(min: number, max: number, val: number) {
   return Math.max(Math.min(val, max), min);
 }
 
-function applyAction(action: Action, region: Region): Region {
+function getCostModifier(happiness: number): number {
+  let modifier: number = 0;
+
+  if(happiness >= 0.9 && happiness <= 1) {
+    modifier = 1;
+  } else if(happiness >= 0.8 && happiness < 0.9) {
+    modifier = 1.03;
+  } else if(happiness >= 0.7 && happiness < 0.8) {
+    modifier = 1.05;
+  } else if(happiness >= 0.6 && happiness < 0.7) {
+    modifier = 1.08;
+  } else if(happiness >= 0.5 && happiness < 0.6) {
+    modifier = 1.1;
+  } else if(happiness >= 0.4 && happiness < 0.5) {
+    modifier = 1.13;
+  } else if(happiness >= 0.3 && happiness < 0.4) {
+    modifier = 1.16;
+  } else if(happiness >= 0.2 && happiness < 0.3) {
+    modifier = 1.19;
+  } else if(happiness >= 0.1 && happiness < 0.2) {
+    modifier = 1.22;
+  } else {
+    modifier = 1.25;
+  }
+
+  return modifier;
+}
+
+function applyAction(state: WorldState, action: Action, region: Region): Region {
   console.log("applying " + action.name + " to region " + region.name);
 
   // happiness can be anything between 0 and 1
@@ -130,32 +158,24 @@ function applyAction(action: Action, region: Region): Region {
   if(region.infectionModifier <= 0)
     region.infectionModifier = 0.1;
 
+  // update local action costs
   region.actionList.forEach(action => {
-    let modifier: number = 0;
+    action.costs = Math.floor(action.base_costs * getCostModifier(region.happiness));
+  });
 
-    if(region.happiness >= 0.9 && region.happiness <= 1) {
-      modifier = 1;
-    } else if(region.happiness >= 0.8 && region.happiness <= 0.89) {
-      modifier = 1.03;
-    } else if(region.happiness >= 0.7 && region.happiness <= 0.79) {
-      modifier = 1.05;
-    } else if(region.happiness >= 0.6 && region.happiness <= 0.69) {
-      modifier = 1.08;
-    } else if(region.happiness >= 0.5 && region.happiness <= 0.59) {
-      modifier = 1.1;
-    } else if(region.happiness >= 0.4 && region.happiness <= 0.49) {
-      modifier = 1.13;
-    } else if(region.happiness >= 0.3 && region.happiness <= 0.39) {
-      modifier = 1.16;
-    } else if(region.happiness >= 0.2 && region.happiness <= 0.29) {
-      modifier = 1.19;
-    } else if(region.happiness >= 0.1 && region.happiness <= 0.19) {
-      modifier = 1.22;
-    } else {
-      modifier = 1.25;
-    }
-    
-    action.costs = Math.floor(action.base_costs * modifier);
+  // update global action costs
+  let totalPopulation: number = 0, totalHappiness: number = 0;
+
+  state.regions.forEach(region => {
+    totalPopulation += region.population;
+  });
+
+  state.regions.forEach(region => {
+    totalHappiness += region.happiness * (region.population / totalPopulation);
+  });
+
+  state.globalActions.forEach(action => {
+    action.costs = Math.floor(action.base_costs * getCostModifier(totalHappiness));
   });
 
   return region;
@@ -174,10 +194,10 @@ function nextRound(state: WorldState): WorldState {
     // apply global actions to all regions
     if (queuedAction.action.global) {
       new_state.regions.forEach(region => {
-        applyAction(queuedAction.action, region);
+        applyAction(state, queuedAction.action, region);
       })
     } else {
-      applyAction(queuedAction.action, new_state.regions[queuedAction.regionId]);
+      applyAction(state, queuedAction.action, new_state.regions[queuedAction.regionId]);
     }
   });
 
