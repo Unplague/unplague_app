@@ -59,6 +59,7 @@ const world = (state = initialState, action: any) => {
         selectedRegion: action.regionId
       });
     case "NEXT_ROUND":
+      if (state.gameEnded) return state;
       return nextRound(state);
     case "QUEUE_ACTION":
       // error handling
@@ -119,8 +120,8 @@ function clamp(min: number, max: number, val: number) {
 function applyAction(action: Action, region: Region): Region {
   console.log("applying " + action.name + " to region " + region.name);
 
-  // happiness can be anything between -100% (pure hate) and 200% (exaggerated happiness)
-  region.happiness = clamp(-1, 2, region.happiness * (1 - (action.satisfaction / 100)))
+  // happiness can be anything between 0 and 1
+  region.happiness = Math.min(1, region.happiness * action.satisfaction);
 
   // infectionModifier can be anything between 0.1 and inf
   region.infectionModifier = region.infectionModifier * action.infection 
