@@ -26,6 +26,20 @@ body
 	color: $textcolor
 	background-color: $backgroundcolor
 
+.start-button-container 
+	position: absolute 
+	top: 10% 
+	left: 5% 
+	bottom: 10% 
+	right: 5% 
+	background: rgba(0,0,0,0.7) 
+	display: flex 
+	align-items: center 
+	justify-content: center 
+	button 
+		height: 50px 
+		width: 150px 
+
 .header 
 	height: 50px 
 	padding: 5px 
@@ -41,81 +55,35 @@ body
 	flex: 1 
 	display: flex 
 	flex-direction: row 
+	// Main Map
+	.leaflet-container 
+		flex: 1
+		background-color: $backgroundcolor !important
+	// Event Feed
+	.eventboard 
+		flex-shrink: 1 
+		width: 200px 
+		background-color: $contrastcolor
+		.EventContainer 
+			margin: 5px 
+			display: flex 
+			flex-direction: column 
+			.EventFeed 
+				margin-top: 10px 
+				display: flex 
+				flex-direction: column-reverse 
+				overflow: hidden 
+				max-height: 300px 
+				.EventTitle 
+					font-weight: bold 
+				.EventDate 
+					font-size: 12px 
+				ul 
+					margin: 0 
+					padding: 0 
+	.interactionboard 
+		flex-shrink: 0 
+		width: 200px 
+		background-color: $backgroundcolor
+		.RegionStats
 
-.eventboard 
-	flex-shrink: 1 
-	width: 200px 
-	background-color: $contrastcolor
-
-.interactionboard_buttons 
-	overflow: hidden 
-	z-index: 10 
-	position: absolute 
-	left: 500px 
-
-.interactionboard 
-	flex-shrink: 0 
-	width: 200px 
-	background-color: $backgroundcolor
-
-.start-button-container 
-	position: absolute 
-	top: 10% 
-	left: 5% 
-	bottom: 10% 
-	right: 5% 
-	background: rgba(0,0,0,0.7) 
-	display: flex 
-	align-items: center 
-	justify-content: center 
-	button 
-		height: 50px 
-		width: 150px 
-
-// Main Map
-.leaflet-container 
-	flex: 1
-	background-color: $backgroundcolor !important
-
-// Region Stats
-// Event Feed
-.EventContainer 
-	margin: 5px 
-	display: flex 
-	flex-direction: column 
-.EventFeed 
-	margin-top: 10px 
-	display: flex 
-	flex-direction: column-reverse 
-	overflow: hidden 
-	max-height: 300px 
-	.EventTitle 
-		font-weight: bold 
-	.EventDate 
-		font-size: 12px 
-	ul 
-		margin: 0 
-		padding: 0 
-	button 
-		display: inline-block 
-		border: none 
-		padding: 2px 2px 
-		margin: 2px 2px 
-		text-decoration: none 
-		background: transparent 
-		color: lightgreen 
-		font-family: 'Inconsolata', monospace 
-		font-size: 1rem 
-		cursor: pointer 
-		text-align: center 
-		transition: background 250ms ease-in-out, transform 150ms ease 
-		-webkit-appearance: none 
-		-moz-appearance: none 
-		&:focus 
-			outline: 1px solid #fff 
-			outline-offset: -4px 
-		&:active 
-			transform: scale(0.99) 
-.EventFeed button:hover,
-.EventFeed button:focus 
-	background: #0053ba 
