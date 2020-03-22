@@ -13,7 +13,7 @@ const RegionStats = () => {
     if (region === undefined) {
         return (
             <div className="RegionStats">
-                no region selected
+                No region selected
             </div>
         );
     } else {
