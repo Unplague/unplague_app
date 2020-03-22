@@ -59,6 +59,7 @@ const world = (state = initialState, action: any) => {
         selectedRegion: action.regionId
       });
     case "NEXT_ROUND":
+      if (state.gameEnded) return state;
       return nextRound(state);
     case "QUEUE_ACTION":
       // error handling
