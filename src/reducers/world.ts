@@ -26,6 +26,7 @@ type WorldState = {
   events: Array<Event>,
   overallInfectionRate: number,
   gameEnded: boolean,
+  won: boolean,
   globalActions: Array<Action>,
 }
 
@@ -38,6 +39,7 @@ const initialState: WorldState = {
   events: [],
   overallInfectionRate: 0.0,
   gameEnded: false,
+  won: false,
   globalActions: defaultActions.global.map(action => Object.assign({}, action, {
     "costs": action.base_costs,
     "used": false,
@@ -205,6 +207,7 @@ function nextRound(state: WorldState): WorldState {
   // ...
 
   // calculate new infections for every region
+  let totalNewInfections = 0;
   new_state.regions = new_state.regions.map(oldRegion  => {
     let region:Region = Object.assign({}, oldRegion, {});
 
@@ -212,12 +215,16 @@ function nextRound(state: WorldState): WorldState {
     console.log("before: infRate=" + oldRegion.infectionRate + " lastRoundNewInfections=" + oldRegion.lastRoundNewInfections);
 
     let new_infections = region.lastRoundNewInfections * region.reproductionRate * region.infectionModifier;
+    // there can't be more infections than non-infected population
+    new_infections = Math.min(new_infections, (1 - region.infectionRate) * region.population);
+    // don't go less than 0.5
+    new_infections = new_infections < 0.5 ? 0 : new_infections;
     region.lastRoundNewInfections = new_infections;
 
     region.infectionRate = Math.min(region.infectionRate + (new_infections / region.population), 1);
 
     console.log("after: newInfections=" + new_infections + " infRate=" + region.infectionRate);
-
+    totalNewInfections += new_infections;
     return region;
   });
 
@@ -267,6 +274,10 @@ function nextRound(state: WorldState): WorldState {
   // check end condition
   if (new_state.overallInfectionRate >= 0.7) {
     new_state.gameEnded = true;
+  }
+  if (new_state.round != 1 && totalNewInfections == 0) {
+    new_state.gameEnded = true;
+    new_state.won = true;
   }
   return new_state;
 }
