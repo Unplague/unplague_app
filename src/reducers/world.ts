@@ -124,7 +124,7 @@ function applyAction(action: Action, region: Region): Region {
   region.happiness = Math.min(1, region.happiness * action.satisfaction);
 
   // infectionModifier can be anything between 0.1 and inf
-  region.infectionModifier = region.infectionModifier * action.infection 
+  region.infectionModifier = region.infectionModifier * action.infection
   if(region.infectionModifier <= 0)
     region.infectionModifier = 0.1;
 
@@ -223,7 +223,7 @@ function nextRound(state: WorldState): WorldState {
       break;
     case 7:
       new_state.regions[2].infectionRate = 0.01;
-      new_state.regions[6].infectionRate = 0.01;
+      new_state.regions[5].infectionRate = 0.01;
 
       new_state.events = [
         ...state.events,
@@ -231,7 +231,7 @@ function nextRound(state: WorldState): WorldState {
         { title: "New Infection in Australia", round: new_state.round },
       ];
       new_state.regions[2].lastRoundNewInfections = new_state.regions[2].infectionRate * new_state.regions[2].population;
-      new_state.regions[6].lastRoundNewInfections = new_state.regions[6].infectionRate * new_state.regions[6].population;
+      new_state.regions[5].lastRoundNewInfections = new_state.regions[5].infectionRate * new_state.regions[5].population;
       break;
   }
 
