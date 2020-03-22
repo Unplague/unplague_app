@@ -19,9 +19,9 @@ const RegionStats = (props: any) => {
                 <h4>{region.name}</h4>
                 <p>Population: {region.population}</p>
                 <p>Infected: {Math.round(region.population * region.infectionRate)}</p>
-                <progress max="100" value={region.infectionRate * 100}></progress>
-                <p>Happiness: {region.happiness}</p>
-                <progress className="happiness" max="100" value={region.happiness * 100}></progress>
+                <progress max="100" value={region.infectionRate * 100} data-label={Math.round(region.infectionRate * 100) + " % "}></progress>
+                <p>Happiness:</p>
+                <progress className="happiness" max="100" value={region.happiness * 100} data-label={Math.round(region.happiness * 100) + " % "}></progress>
             </div>
         );
     }
