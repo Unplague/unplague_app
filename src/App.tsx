@@ -66,7 +66,7 @@ class App extends React.Component<MyProps, MyState> {
           <div className="eventboard">
             <EventFeed/>
           </div>
-          <RegionList />
+          {/* <RegionList /> */}
           <MainMap regions={regions}/>
           <div className="interactionboard">
             <RegionStats />
