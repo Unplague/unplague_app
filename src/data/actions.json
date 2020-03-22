@@ -1,119 +1,119 @@
 {
     "local": [
         {
-            "category": "Aufklärung",
-            "name": "Händewaschen",
+            "category": "Education",
+            "name": "Hand washing attitude",
             "infection": 0.9,
             "satisfaction": 1.03,
-            "costs": 67,
+            "base_costs": 67,
             "unlock": 0
         }, {
-            "category": "Aufklärung",
-            "name": "Social Distancing",
-            "infection": 0.92,
-            "satisfaction": 1,
-            "costs": 48,
+            "category": "Education",
+            "name": "Soical distance",
+            "infection": 0.85,
+            "satisfaction": 0.8,
+            "base_costs": 66,
             "unlock": 0
         }, {
-            "category": "Aufklärung",
-            "name": "Nießverhalten",
+            "category": "Education",
+            "name": "Sneezing behavior",
             "infection": 0.95,
-            "satisfaction": 1.03,
-            "costs": 37,
+            "satisfaction": 1,
+            "base_costs": 30,
             "unlock": 0
         }, {
-            "category": "Aufklärung",
+            "category": "Education",
             "name": "Twitter",
-            "infection": 0.98,
+            "infection": 1,
             "satisfaction": 1.1,
-            "costs": 36,
+            "base_costs": 24,
             "unlock": 0
         }, {
-            "category": "Aufklärung",
-            "name": "World News",
+            "category": "Education",
+            "name": "World news",
             "infection": 0.92,
             "satisfaction": 1.05,
-            "costs": 60,
+            "base_costs": 60,
             "unlock": 0
         }, {
-            "category": "Aufklärung",
-            "name": "Permanent Broadcast",
-            "infection": 0.94,
-            "satisfaction": 1.03,
-            "costs": 43,
+            "category": "Education",
+            "name": "Permanent newsfeed",
+            "infection": 0.92,
+            "satisfaction": 1.05,
+            "base_costs": 60,
             "unlock": 0
         }, {
-            "category": "Aufklärung",
-            "name": "Finanzspritze",
+            "category": "Education",
+            "name": "Social care",
             "infection": 1,
-            "satisfaction": 1.3,
-            "costs": 72,
+            "satisfaction": 1.45,
+            "base_costs": 108,
             "unlock": 0
         },{
-            "category": "Aufklärung",
-            "name": "Fake News",
+            "category": "Education",
+            "name": "Fake news",
             "infection": 1.2,
-            "satisfaction": 1.6,
-            "costs": 24,
+            "satisfaction": 1.2,
+            "base_costs": 40,
             "unlock": 0
         }, {
-            "category": "Einschränkung",
-            "name": "Ausgangsbegrenzung",
-            "infection": 0.85,
-            "satisfaction": 0.95,
-            "costs": 93,
+            "category": "Limitations",
+            "name": "Light curfew",
+            "infection": 0.8,
+            "satisfaction": 0.75,
+            "base_costs": 90,
             "unlock": 0
         }, {
-            "category": "Einschränkung",
-            "name": "Ausgangssprerre",
-            "infection": 0.7,
+            "category": "Limitations",
+            "name": "Curfew",
+            "infection": 0.6,
             "satisfaction": 0.7,
-            "costs": 195,
+            "base_costs": 204,
             "unlock": 0
         }, {
-            "category": "Einschränkung",
-            "name": "Lock-Down",
-            "infection": 0.3,
-            "satisfaction": 0.3,
-            "costs": 455,
+            "category": "Limitations",
+            "name": "Lockdown",
+            "infection": 0.25,
+            "satisfaction": 0.2,
+            "base_costs": 354,
             "unlock": 0
         }, {
-            "category": "Einschränkung",
-            "name": "Absichtliche Ansteckung",
+            "category": "Limitations",
+            "name": "Infection on purpose",
             "infection": 2,
             "satisfaction": 0.5,
-            "costs": -150,
+            "base_costs": -150,
             "unlock": 0
         }, {
-            "category": "Einschränkung",
-            "name": "Patienten Isolation",
+            "category": "Limitations",
+            "name": "Isolating patients",
             "infection": 0.8,
             "satisfaction": 0.8,
-            "costs": 72,
+            "base_costs": 96,
             "unlock": 0
         }, {
-            "category": "Einschränkung",
-            "name": "Grenzen schließen",
-            "infection": 0.8,
-            "satisfaction": 0.9,
-            "costs": 96,
+            "category": "Limitations",
+            "name": "Closing borders",
+            "infection": 0.7,
+            "satisfaction": 0.8,
+            "base_costs": 156,
             "unlock": 0
         }
     ],
     "global": [
         {
-            "category": "Globale",
-            "name": "WHO Rede",
+            "category": "Global",
+            "name": "WHO speech",
             "infection": 0.75,
-            "satisfaction": 1.15,
-            "costs": 186,
+            "satisfaction": 1.1,
+            "base_costs": 324,
             "unlock": 0
         }, {
             "category": "Globale",
-            "name": "World Emergency",
+            "name": "World emergency",
             "infection": 0.7,
             "satisfaction": 1.3,
-            "costs": 252,
+            "base_costs": 432,
             "unlock": 0
         }
     ]
