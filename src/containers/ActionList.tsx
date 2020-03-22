@@ -3,10 +3,21 @@ import React from 'react';
 import {store} from '../index';
 import { connect } from "react-redux";
 
+function printStat(value: number, negIsGood: boolean) {
+    let perc = (value - 1) * 100
+    let className = "positive";
+    if ((negIsGood && perc > 0) || (!negIsGood && perc < 0)) {
+        className = "negative";
+    }
+    return <span className={className}>{perc.toFixed(1)} %</span>
+}
+
 function createAction(item: any, i: number) {
     return <div>
         <button onClick={() => store.dispatch(queueAction(item.global, i))} disabled={item.used === true}>
-            {item.name} ({item.costs} ₮)
+            <p className="name">{item.name} ({item.costs} ₮)</p>
+            <p className="stats">Infecton: {printStat(item.infection, true)}</p>
+            <p className="stats">Satisfaction: {printStat(item.satisfaction, false)}</p>
         </button>
     </div>
 }
