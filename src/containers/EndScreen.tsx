@@ -6,17 +6,20 @@ import { connect } from 'react-redux';
 const EndScreen = (props: any) => {
     if (props.gameEnded ) {
         return (
-            <div className="end-screen">
-                <h2>Game Over</h2>
-                <p>You have surpassed the world infection rate of 70%</p>
-                <p>
+            <div className="info-container">
+                <div><h2>Game Over</h2></div>
+                <div>You have surpassed the world infection rate of 70%</div>
+                <div>
                     Overall Infecton: {Math.round(props.infectionRate*100)}% <br />
                     Rounds played: {props.round} <br />
                     Money: {props.money} ₮ <br />
-                </p>
+                </div>
+                    
+                <div>
                 <button onClick={() => window.location.reload()}>
                     Restart Game
                 </button>
+                </div>
             </div>
         );
     } else {

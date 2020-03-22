@@ -7,7 +7,7 @@ import { nextRound } from '../actions';
 const RoundControl = (props: any) => {
     if (props.round == 0) {
         return (
-            <div className="start-button-container">
+            <div className="info-container">
                 <button onClick={() => {store.dispatch(nextRound());}}>
                     Start Game
                 </button>
