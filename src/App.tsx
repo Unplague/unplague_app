@@ -11,7 +11,7 @@ import { store } from './index';
 import EndScreen from './containers/EndScreen';
 
 import wvw_logo from './assets/wvw_logo.png'
-import logo_no_text from './assets/logo_no_text.png'
+import logo_full_2 from './assets/logo_full_2.png'
 
 interface MyProps {
 
@@ -58,12 +58,8 @@ class App extends React.Component<MyProps, MyState> {
     return (
       <div className="app">
         <div className="header">
-          <div className="left">
-          <a href="#">
-              <img src={logo_no_text} width="250px"></img>
-            </a>
-          </div>
-          <div className="center"><h1>Unplague</h1></div>
+          <div className="left"></div>
+          <div className="center"><h1>unplague</h1></div>
           <div className="right"></div>
         </div>
         <div className="content">
@@ -98,7 +94,9 @@ class App extends React.Component<MyProps, MyState> {
               <a href="https://github.com/Unplague/unplague_app">GitHub Project</a>
             </div>
           </div>
-          <div className="right"></div>
+          <div className="right">
+              <img src={logo_full_2} ></img>
+          </div>
         </div>
       </div>
     );

@@ -3,11 +3,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { store } from '..';
 import { nextRound } from '../actions';
+import logo_full from './../assets/logo_full.png'
+
 
 const RoundControl = (props: any) => {
     if (props.round == 0) {
         return (
             <div className="info-container">
+                <img src={logo_full} width="250px"></img>
                 <button onClick={() => {store.dispatch(nextRound());}}>
                     Start Game
                 </button>
