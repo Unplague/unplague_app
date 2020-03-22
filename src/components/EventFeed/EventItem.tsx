@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import './EventFeed.sass';
 
 type EventItemProps = {
     round: number,

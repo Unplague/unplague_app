@@ -3,8 +3,6 @@ import React from 'react';
 import { Region } from '../model/Region';
 import { connect } from 'react-redux';
 
-import '../components/RegionStats.sass';
-
 const RegionStats = (props: any) => {
     let region: Region = props.region;
     if (region === undefined) {
