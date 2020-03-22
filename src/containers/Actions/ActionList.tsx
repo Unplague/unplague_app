@@ -9,7 +9,7 @@ const ActionList = (props: any) => {
     return (
         <div className="EventContainer">
             <h3>Actions</h3>
-            <div className="EventFeed">
+            <div className="ActionList">
                     {
                         props.actions.map((item: any, i: any) => {
                         return <div>
