@@ -44,7 +44,7 @@
             "unlock": 0
         }, {
             "category": "Education",
-            "name": "Soical care",
+            "name": "Social care",
             "infection": 1,
             "satisfaction": 1.45,
             "base_costs": 108,
