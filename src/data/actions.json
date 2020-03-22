@@ -9,7 +9,7 @@
             "unlock": 0
         }, {
             "category": "Education",
-            "name": "Soical distance",
+            "name": "Social distance",
             "infection": 0.85,
             "satisfaction": 0.8,
             "base_costs": 66,
