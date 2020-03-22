@@ -116,7 +116,6 @@ function nextRound(state: WorldState): WorldState {
       { title: "Initial Infection in Asia", round: new_state.round },
       { title: "Initial Infection in Europe", round: new_state.round },
     ];
-  }
 
     // maybe change this...
     new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
