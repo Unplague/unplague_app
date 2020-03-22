@@ -79,43 +79,53 @@ const world = (state = initialState, action: any) => {
     }
 };
 
+function clamp(min: number, max: number, val: number) {
+  return Math.max(Math.min(val, max), min);
+}
+
+
 function applyAction(action: Action, region: Region): Region {
   // happiness can be anything between -100% (pure hate) and 200% (exaggerated happiness)
-  region.happiness = Math.max(Math.min(region.happiness * (1 - (action.satisfaction / 100)), 2), -1);
+  region.happiness = clamp(-1, 2, region.happiness * (1 - (action.satisfaction / 100)))
 
   // infectionRate can be anything between 0% and 100%
-  region.infectionRate = Math.max(Math.min(region.infectionRate * (1 - (action.infection / 100)), 1), 0); 
+  region.infectionModifier = clamp(0, 1, region.infectionModifier * (1 - (action.infection / 100)))
 
   return region;
 }
 
 function nextRound(state: WorldState): WorldState {
+  // increment clock and money
   let new_state = Object.assign({}, state, {
       round: state.round + 1,
       money: state.money + 100 // constant money gain
   });
 
+
   if (new_state.round == 1) {
     // assign initial infection
     new_state.regions[0].infectionRate = 0.7;
-    new_state.regions[1].infectionRate = 0.2;
+    new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
   }
 
-  /*new_state.regions.forEach(region => {
-  new_state.regions.forEach(region => {
-    region.infectionRate += 0.1;
-    if (region.infectionRate > 1.0) {
-        region.infectionRate = 1.0;
-    }
-  });*/
-
+  // apply measures
   let action: any = actionList.actions[0];
   let region = new_state.regions[0];
 
-  new_state.regions[0] = applyAction(action, region);
+  region = applyAction(action, region);
 
-  console.log(new_state.regions[0])
+  console.log(region)
 
+  // apply effects of game events
+  // ...
+
+  // calculate new infections etc
+  let new_infections = region.lastRoundNewInfections * region.reproductionRate * region.infectionModifier;
+  region.lastRoundNewInfections = new_infections;
+
+  region.infectionRate = Math.min(region.infectionRate + (new_infections / region.population), 1);
+
+  new_state.regions[0] = region;
   return new_state;
 }
 
