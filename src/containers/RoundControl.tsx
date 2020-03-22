@@ -57,7 +57,7 @@ const RoundControl = (props: any) => {
                 <div className="nextButton">
                     <ActionQueue actions={props.queuedActions}></ActionQueue>
                     <button onClick={() => store.dispatch(nextRound())}>
-                        Next Round
+                        Next Round ({props.queuedActions.length} actions) »
                 </button>
                 </div>
             </div>
