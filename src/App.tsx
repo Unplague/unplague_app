@@ -59,7 +59,7 @@ class App extends React.Component<MyProps, MyState> {
     return (
       <div className="app">
         <div className="header">
-          <div className="left"><RoundControl /></div>
+          <div className="left board"><RoundControl /></div>
           <div className="center">Unplague</div>
           <div className="right"></div>
         </div>
