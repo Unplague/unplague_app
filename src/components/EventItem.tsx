@@ -6,7 +6,7 @@ type EventItemProps = {
 }
 
 const EventItem: FunctionComponent<EventItemProps> = ({ title, round }: any) => (
-    <div>
+    <div className="EventItem">
         <div className="EventDate">
             Round {round}
         </div>

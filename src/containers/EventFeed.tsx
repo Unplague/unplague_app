@@ -9,13 +9,11 @@ const EventFeed = (props: any) => {
         <div className="EventContainer">
             <h3>Events</h3>
             <div className="EventFeed">
-                <ul>
-                    {
-                        props.events.map((item: any, i: any) => {
-                            return <EventItem key={i} title={item.title} round={item.round} />
-                        })
-                    }
-                </ul>
+                {
+                    props.events.map((item: any, i: any) => {
+                        return <EventItem key={i} title={item.title} round={item.round} />
+                    })
+                }
             </div>
         </div>
     );
