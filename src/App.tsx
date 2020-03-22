@@ -99,6 +99,11 @@ class App extends React.Component<MyProps, MyState> {
                 GitHub Project
               </a>
             </div>
+            <div>
+              <a href="https://www.youtube.com/watch?v=5yFiKWATnWE" target="_blank">
+                YouTube
+              </a>
+            </div>
           </div>
           <div className="right">
               <img src={logo_full_2} ></img>
