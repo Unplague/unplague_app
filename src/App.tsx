@@ -61,13 +61,14 @@ class App extends React.Component<MyProps, MyState> {
             <a href="#">
               <img src={wvw_logo} width="200px"></img>
             </a>
+
           </div>
           <div className="center">Unplague</div>
           <div className="right"></div>
         </div>
         <div className="content">
           <div className="interactionboard eventboard">
-          <div className="innerboard"><RoundControl /></div>
+          <div className="innerboard"><RoundControl /><EndScreen/></div>
           <div className="innerboard"><EventFeed /></div>
           </div>
           {/* <RegionList /> */}
