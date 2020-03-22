@@ -83,13 +83,11 @@ body
 		background-color: $backgroundcolor !important
 	// Event Feed
 	.eventboard 
-		flex-shrink: 1 
+	
 		.EventContainer 
-			margin: 5px 
 			display: flex 
 			flex-direction: column 
 			.EventFeed 
-				margin-top: 10px 
 				display: flex 
 				flex-direction: column-reverse 
 				overflow: hidden 
@@ -102,29 +100,22 @@ body
 					margin: 0 
 					padding: 0 
 	.interactionboard 
-		display: felx
 		flex-direction: column
 		flex-grow: 0
-		width: 200px 
+		width: 220px 
 		length: 100vh
-		justify-content: space-between
 
-		.RegionStats
-			padding-top: 10px
-			padding: 5px
-		.ActionContainer
-			padding: 5px
-			padding-top: 10px
+		.innerboard
+			padding: 10px
+			padding-top: 10px		
+			box-sizing: border-box
+			width: 220px 
+			border: 10px solid $backgroundcolor
+  			margin: 0px
+			background-color: $contrastcolor
+
 		.scollable
 			overflow: auto
 			max-height: 50vh
 
 
-.innerboard
-	padding: 5px
-	padding-top: 10px		
-	box-sizing: border-box
-	width: 200px 
-	border: 10px solid $backgroundcolor
-  	margin: 0px
-	background-color: $contrastcolor
