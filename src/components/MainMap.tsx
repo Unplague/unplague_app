@@ -2,7 +2,7 @@ import React from 'react';
 import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet';
 import { LatLngTuple, latLngBounds } from 'leaflet';
 import 'leaflet-css';
-import './MainMap.css';
+import './MainMap.sass';
 import continents from '../data/continents.json';
 import * as turf from '@turf/turf'
 import { selectRegion } from "../actions";

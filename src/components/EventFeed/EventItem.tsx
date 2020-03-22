@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import './EventFeed.css';
+import './EventFeed.sass';
 
 type EventItemProps = {
     round: number,

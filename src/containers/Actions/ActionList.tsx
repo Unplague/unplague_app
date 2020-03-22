@@ -1,7 +1,7 @@
 import { executeAction as queueAction } from "../../actions";
 import React from 'react';
 
-import '../../components/EventFeed/EventFeed.css';
+import '../../components/EventFeed/EventFeed.sass';
 import {store} from '../../index';
 import { connect } from "react-redux";
 
