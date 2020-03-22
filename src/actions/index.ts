@@ -5,8 +5,9 @@ export const addInform = (value: number) => ({
     value
 });
 
-export const executeAction = (value: number) => ({
+export const queueAction = (global:boolean, value: number) => ({
     type: 'QUEUE_ACTION',
+    global,
     value
 });
 

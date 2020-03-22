@@ -1,4 +1,5 @@
 import { Region } from "../model/Region";
+import defaultActions from '../data/actions.json';
 
 type Action = {
   name: string,
@@ -6,6 +7,7 @@ type Action = {
   satisfaction: number,
   costs: number,
   used: Boolean,
+  global: Boolean,
 }
 
 type Event = {
@@ -17,22 +19,27 @@ type WorldState = {
   regions: Array<Region>,
   money: number,
   round: number,
-  selectedRegion?: number,
+  selectedRegion: number,
   queuedActions: Array<{ action: any, regionId: number }>,
   events: Array<Event>,
   overallInfectionRate: number,
   gameEnded: boolean,
+  globalActions: Array<Action>,
 }
 
 const initialState: WorldState = {
   regions: [],
   money: 100,
   round: 0,
-  selectedRegion: undefined,
+  selectedRegion: -1,
   queuedActions: [],
   events: [],
   overallInfectionRate: 0.0,
   gameEnded: false,
+  globalActions: defaultActions.global.map(action => Object.assign({}, action, {
+    "used": false,
+    "global": true,
+  })),
 }
 
 const world = (state = initialState, action: any) => {
@@ -55,14 +62,21 @@ const world = (state = initialState, action: any) => {
       return nextRound(state);
     case "QUEUE_ACTION":
       // error handling
-      if (state.selectedRegion === undefined) {
+      if (!action.global && state.selectedRegion === -1) {
         alert("No region selected");
         return state;
       }
       if (state.round == 0 || state.gameEnded) {
         return state;
       }
-      let userAction: Action = state.regions[state.selectedRegion].actionList[action.value];
+
+      // retrieve action object
+      let userAction;
+      if (action.global || state.selectedRegion === -1) {
+        userAction = state.globalActions[action.value];
+      } else {
+        userAction = state.regions[state.selectedRegion].actionList[action.value];
+      }
       if (state.money < userAction.costs) {
         alert("You do not have enough money");
         return state;
@@ -72,15 +86,26 @@ const world = (state = initialState, action: any) => {
         queuedActions: [
           ...state.queuedActions,
           {
-            regionId: state.selectedRegion,
+            regionId: action.global ? -1 : state.selectedRegion,
             action: userAction,
           }
         ]
       });
-      new_state.regions[state.selectedRegion].actionList = state.regions[state.selectedRegion].actionList.slice();
-      new_state.regions[state.selectedRegion].actionList[action.value] = Object.assign({}, userAction, {
-        used: true,
-      });
+
+      // update used attribute
+      if (action.global || state.selectedRegion === -1) {
+        new_state.globalActions = state.globalActions.map((userAction, i) => {
+          return Object.assign({}, userAction, {
+            used: i === action.value ? true : state.globalActions[i].used
+          })
+        });
+      } else {
+        new_state.regions[state.selectedRegion].actionList = new_state.regions[state.selectedRegion].actionList.map((userAction, i) => {
+          return Object.assign({}, userAction, {
+            used: i === action.value ? true : new_state.regions[state.selectedRegion!].actionList[i].used
+          })
+        });
+      }
       return new_state;
     default:
       return state;
@@ -113,7 +138,14 @@ function nextRound(state: WorldState): WorldState {
 
   // apply queued actions
   state.queuedActions.forEach(queuedAction => {
-    applyAction(queuedAction.action, new_state.regions[queuedAction.regionId])
+    // apply global actions to all regions
+    if (queuedAction.action.global) {
+      new_state.regions.forEach(region => {
+        applyAction(queuedAction.action, region);
+      })
+    } else {
+      applyAction(queuedAction.action, new_state.regions[queuedAction.regionId]);
+    }
   });
 
   // apply effects of game events
