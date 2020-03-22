@@ -4,9 +4,17 @@ import { Region } from '../model/Region';
 import { connect } from 'react-redux';
 
 import '../components/RegionStats.css';
+import { store } from '../index';
 
-const RegionStats = (props: any) => {
-    let region: Region = props.region;
+const RegionStats = () => {
+    let region = undefined;
+    let regionId = store.getState().world.selectedRegion;
+
+    if(regionId !== undefined && regionId >= 0) {
+        // Get current region if available
+        region = store.getState().world.regions[regionId];
+    }
+
     if (region === undefined) {
         return (
             <div className="RegionStats">
@@ -27,9 +35,4 @@ const RegionStats = (props: any) => {
     }
 };
 
-const mapStateToProps: any = (state: any) => {
-    return {
-        region: state.world.regions[state.world.selectedRegion]
-    }
-};
-export default connect(mapStateToProps)(RegionStats);
+export default RegionStats;
