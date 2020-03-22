@@ -63,7 +63,7 @@ class App extends React.Component<MyProps, MyState> {
       <div className="app">
         <div className="header">Unplague</div>
         <div className="content">
-          <div className="eventboard">
+          <div className="eventboard board">
             <EventFeed/>
           </div>
           {/* <RegionList /> */}

@@ -13,8 +13,8 @@ const RegionStats = (props: any) => {
         );
     } else {
         return (
-            <div className="RegionStats">
-                <h4>{region.name}</h4>
+            <div className="RegionStats board">
+                <h3>{region.name}</h3>
                 <p>Population: {region.population}</p>
                 <p>Infected: {Math.round(region.population * region.infectionRate)}</p>
                 <progress max="100" value={region.infectionRate * 100} data-label={Math.round(region.infectionRate * 100) + " % "}></progress>

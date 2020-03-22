@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 const ActionList = (props: any) => {
     return (
-        <div className="ActionContainer">
+        <div className="ActionContainer board">
             <h3>Actions</h3>
             <div className="ActionList">
                     {

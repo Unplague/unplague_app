@@ -58,12 +58,11 @@ body
 	// Main Map
 	.leaflet-container 
 		flex: 1
+		flex-grow: 1
 		background-color: $backgroundcolor !important
 	// Event Feed
 	.eventboard 
 		flex-shrink: 1 
-		width: 200px 
-		background-color: $contrastcolor
 		.EventContainer 
 			margin: 5px 
 			display: flex 
@@ -82,8 +81,24 @@ body
 					margin: 0 
 					padding: 0 
 	.interactionboard 
-		flex-shrink: 0 
+		display: felx
+		flex-direction: column
+		flex-grow: 0
 		width: 200px 
-		background-color: $backgroundcolor
+		length: 100vh
+		justify-content: space-between
+
 		.RegionStats
+			padding-top: 10px
+			padding: 5px
+		.ActionContainer
+			padding: 5px
+			padding-top: 10px
+
+.board		
+	width: 200px 
+	border: 10px solid $backgroundcolor
+  	padding: 50px
+  	margin: 0px
+	background-color: $contrastcolor
 
