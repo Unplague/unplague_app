@@ -12,19 +12,21 @@ const RoundControl = (props: any) => {
         return (
             <div className="info-container">
 
-                <h2><b>Welcome to the fight against Corona at Unplague.de!</b></h2>
-                <img src={logo_full} width="250px"></img>
 
+                <img onClick={() => { store.dispatch(nextRound()); }} src={logo_full} width="250px"></img>
+
+                <h2><b>Welcome to the fight against Corona at unplague.de!</b></h2>
                 <div>
                     The goal of Unplague is to <b>extend the time until 70% of the world population is infected</b> with the Corona virus. This is the only way to save the health system from overloading.
 </div>
                 <button onClick={() => { store.dispatch(nextRound()); }}>
-                    Start Game
+                    <h2>Start Game</h2>
                 </button>
 
                 <div>
-                <i>Unplague was conceived and developed within less than 48 hours as part of the #wirvsvirus hackathon of the Federal Government in Germany. Do you like the idea? Then give us your like in the public voting on <a href="">YouTube</a>.</i>
+                    <i>Unplague was conceived and developed within less than 48 hours as part of the #wirvsvirus hackathon of the Federal Government in Germany. Do you like the idea? Then give us your like in the public voting on <a href="">YouTube</a>.</i>
                 </div>
+
             </div>
         );
     } else {
