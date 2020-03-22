@@ -167,7 +167,7 @@ function nextRound(state: WorldState): WorldState {
       new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
       new_state.regions[1].lastRoundNewInfections = new_state.regions[1].infectionRate * new_state.regions[1].population;
       break;
-    case 2:
+    case 3:
       new_state.regions[4].infectionRate = 0.005;
 
       new_state.events = [
@@ -176,7 +176,7 @@ function nextRound(state: WorldState): WorldState {
       ];
       new_state.regions[4].lastRoundNewInfections = new_state.regions[4].infectionRate * new_state.regions[4].population;
       break;
-    case 3:
+    case 5:
       new_state.regions[3].infectionRate = 0.01;
 
 
@@ -186,7 +186,7 @@ function nextRound(state: WorldState): WorldState {
       ];
       new_state.regions[3].lastRoundNewInfections = new_state.regions[3].infectionRate * new_state.regions[3].population;
       break;
-    case 4:
+    case 7:
       new_state.regions[2].infectionRate = 0.01;
       new_state.regions[6].infectionRate = 0.01;
 
