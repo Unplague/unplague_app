@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { store } from '..';
 import { nextRound } from '../actions';
 import logo_full from './../assets/logo_full.png'
+import ProgressMeter from '../components/ProgressMeter';
 
 
 const RoundControl = (props: any) => {
@@ -40,6 +41,9 @@ const RoundControl = (props: any) => {
                         Overall Infection:
                     </div>
                     <div className="value">{Math.round(props.infectionRate * 100)}%</div>
+                </div>
+                <div className="data">
+                    <ProgressMeter value={props.infectionRate} highIsGood={false}></ProgressMeter>
                 </div>
                 <div className="data">
                     <div className="round">
