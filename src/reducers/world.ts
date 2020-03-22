@@ -122,8 +122,10 @@ function applyAction(action: Action, region: Region): Region {
   // happiness can be anything between -100% (pure hate) and 200% (exaggerated happiness)
   region.happiness = clamp(-1, 2, region.happiness * (1 - (action.satisfaction / 100)))
 
-  // infectionRate can be anything between 0% and 100%
-  region.infectionModifier = clamp(0, 1, region.infectionModifier * (1 - action.infection))
+  // infectionModifier can be anything between 0.1 and inf
+  region.infectionModifier = region.infectionModifier * action.infection 
+  if(region.infectionModifier <= 0)
+    region.infectionModifier = 0.1;
 
   return region;
 }
