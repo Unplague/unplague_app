@@ -1,4 +1,3 @@
-import actionList from '../data/actions.json';
 import { Region } from "../model/Region";
 
 type Action = {
@@ -22,6 +21,7 @@ type WorldState = {
   queuedActions: Array<{action: any, regionId: number}>,
   events: Array<Event>,
   overallInfectionRate: number,
+  gameEnded: boolean,
 }
 
 const initialState : WorldState = {
@@ -32,6 +32,7 @@ const initialState : WorldState = {
   queuedActions: [],
   events: [],
   overallInfectionRate: 0.0,
+  gameEnded: false,
 }
 
 const world = (state = initialState, action: any) => {
@@ -58,7 +59,7 @@ const world = (state = initialState, action: any) => {
         alert("No region selected");
         return state;
       }
-      if (state.round == 0) {
+      if (state.round == 0 || state.gameEnded) {
         return state;
       }
       let userAction:Action = state.regions[state.selectedRegion].actionList[action.value];
@@ -157,6 +158,11 @@ function nextRound(state: WorldState): WorldState {
     infectedPopulation += (region.infectionRate * region.population);
   });
   new_state.overallInfectionRate = infectedPopulation / totalPopulation;
+
+  // check end condition
+  if (new_state.overallInfectionRate >= 0.7) {
+    new_state.gameEnded = true;
+  }
   return new_state;
 }
 

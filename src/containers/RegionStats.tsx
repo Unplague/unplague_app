@@ -27,7 +27,7 @@ const RegionStats = () => {
                 <h4>{region.name}</h4>
                 <p>Population: {Math.round(region.population / 1_000_000)} Mio.</p>
                 <p>Infected:</p>
-                <progress max="100" value={region.infectionRate * 100} data-label={Math.round(region.infectionRate * 100) + " % "}></progress>
+                <progress max="100" value={region.infectionRate * 100} data-label={(region.infectionRate * 100).toFixed(1) + " % "}></progress>
                 <p>Happiness:</p>
                 <progress className="happiness" max="100" value={region.happiness * 100} data-label={Math.round(region.happiness * 100) + " % "}></progress>
                 <p>Reproduction Rate: <br />{(region.reproductionRate * region.infectionModifier).toFixed(2)}</p>

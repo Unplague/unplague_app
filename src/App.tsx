@@ -11,6 +11,7 @@ import RegionList from './containers/RegionList';
 import RoundControl from './containers/RoundControl';
 
 import { store } from './index';
+import EndScreen from './containers/EndScreen';
 
 
 interface MyProps {
@@ -72,6 +73,7 @@ class App extends React.Component<MyProps, MyState> {
         <div className="footer">
           <RoundControl />
           <InformedStatus></InformedStatus></div>
+          <EndScreen></EndScreen>
       </div> 
     );
   }
