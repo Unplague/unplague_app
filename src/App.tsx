@@ -13,6 +13,7 @@ import RoundControl from './containers/RoundControl';
 import { store } from './index';
 import EndScreen from './containers/EndScreen';
 
+import wvw_logo from './assets/wvw_logo.png'
 
 interface MyProps {
 
@@ -59,6 +60,11 @@ class App extends React.Component<MyProps, MyState> {
     return (
       <div className="app">
         <div className="header">
+          <div className="left">
+            <a href="#">
+              <img src={wvw_logo} width="200px"></img>
+            </a>
+          </div>
           <div className="center">Unplague</div>
           <div className="right"></div>
         </div>
