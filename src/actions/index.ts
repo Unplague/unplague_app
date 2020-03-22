@@ -24,3 +24,7 @@ export const selectRegion = (regionId: number) => ({
 export const nextRound = () => ({
     type: 'NEXT_ROUND',
 });
+
+export const restartGame = () => ({
+    type: 'RESTART_GAME',
+});
