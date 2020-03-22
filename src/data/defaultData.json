@@ -1,11 +1,11 @@
 {
     "data": [
-        { "name": "Asia", "population": 123123 },
-        { "name": "Europe", "population": 123123 },
-        { "name": "North America", "population": 123123 },
-        { "name": "South America", "population": 123123 },
-        { "name": "Africa", "population": 123123 },
-        { "name": "Oceania", "population": 123123 },
-        { "name": "Australia", "population": 123123 }
+        { "name": "Asia", "population": 4581757408 },
+        { "name": "Europe", "population": 738849000 },
+        { "name": "North America", "population": 579024000 },
+        { "name": "South America", "population": 422535000 },
+        { "name": "Africa", "population": 1216130000 },
+        { "name": "Oceania", "population": 12650000	},
+        { "name": "Australia", "population": 25654000 }
     ]
 }

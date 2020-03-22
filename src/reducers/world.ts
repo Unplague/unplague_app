@@ -111,37 +111,36 @@ function nextRound(state: WorldState): WorldState {
 
   if (new_state.round == 1) {
     // assign initial infection
-    new_state.regions[0].infectionRate = 0.7;
+    new_state.regions[0].infectionRate = 0.2;
 
     new_state.events= [
       ...state.events,
       { title: "Initial Infection in Asia", round: new_state.round },
-      { title: "Initial Infection in Europe", round: new_state.round },
+      //{ title: "Initial Infection in Europe", round: new_state.round },
     ];
-
-    // maybe change this...
     new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
+  } else {
+
+    // apply measures
+    let action: Action = actionList.actions[0];
+
+    let region = new_state.regions[0];
+
+    region = applyAction(action, region);
+
+    console.log(region)
+
+    // apply effects of game events
+    // ...
+
+    // calculate new infections etc
+    let new_infections = region.lastRoundNewInfections * region.reproductionRate * region.infectionModifier;
+    region.lastRoundNewInfections = new_infections;
+
+    region.infectionRate = Math.min(region.infectionRate + (new_infections / region.population), 1);
+
+    new_state.regions[0] = region;
   }
-
-  // apply measures
-  let action: Action = actionList.actions[0];
-
-  let region = new_state.regions[0];
-
-  region = applyAction(action, region);
-
-  console.log(region)
-
-  // apply effects of game events
-  // ...
-
-  // calculate new infections etc
-  let new_infections = region.lastRoundNewInfections * region.reproductionRate * region.infectionModifier;
-  region.lastRoundNewInfections = new_infections;
-
-  region.infectionRate = Math.min(region.infectionRate + (new_infections / region.population), 1);
-
-  new_state.regions[0] = region;
 
   // calculate total injection rate
   let infectedPopulation = 0;
