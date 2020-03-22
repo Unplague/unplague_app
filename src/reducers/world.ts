@@ -20,7 +20,8 @@ type WorldState = {
   round: number,
   selectedRegion?: number,
   queuedActions: Array<{action: any, region: Region}>,
-  events: Array<Event>
+  events: Array<Event>,
+  overallInfectionRate: number,
 }
 
 const initialState : WorldState = {
@@ -30,6 +31,7 @@ const initialState : WorldState = {
   selectedRegion: undefined,
   queuedActions: [],
   events: [],
+  overallInfectionRate: 0.0,
 }
 
 const world = (state = initialState, action: any) => {
@@ -140,6 +142,15 @@ function nextRound(state: WorldState): WorldState {
   region.infectionRate = Math.min(region.infectionRate + (new_infections / region.population), 1);
 
   new_state.regions[0] = region;
+
+  // calculate total injection rate
+  let infectedPopulation = 0;
+  let totalPopulation = 0;
+  new_state.regions.forEach((region) => {
+    totalPopulation += region.population;
+    infectedPopulation += (region.infectionRate * region.population);
+  });
+  new_state.overallInfectionRate = infectedPopulation / totalPopulation;
   return new_state;
 }
 

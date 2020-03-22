@@ -18,6 +18,7 @@ const RoundControl = (props: any) => {
             <p>
                 Current round: {props.round} <br />
                 Money: {props.money} ₮ <br />
+                Overall Infecton: {Math.round(props.infectionRate*100)}% <br />
                 <button onClick={() => store.dispatch(nextRound())}>
                     Next Round
                 </button>
@@ -30,6 +31,7 @@ const mapStateToProps: any = (state: any) => {
     return {
         round: state.world.round,
         money: state.world.money,
+        infectionRate: state.world.overallInfectionRate,
     }
 };
 export default connect(mapStateToProps)(RoundControl);
