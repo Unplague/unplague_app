@@ -8,6 +8,7 @@ export class Region {
     public actionList: Array<any> = [];
     public lastRoundNewInfections: number = 0;
     public infectionModifier: number = 1;
+    public infectionTrend: number = 0; // 0: none, 1: good, 2: bad, 3: very bad
 
     constructor(
         public name: string,

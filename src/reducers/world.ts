@@ -171,19 +171,6 @@ function nextRound(state: WorldState): WorldState {
     return region;
   });
 
-  // apply fixed new infections
-  // if (new_state.round == 1) {
-  //   // assign initial infection
-  //   new_state.regions[0].infectionRate = 0.2;
-
-  //   new_state.events= [
-  //     ...state.events,
-  //     { title: "Initial Infection in Asia", round: new_state.round },
-  //     //{ title: "Initial Infection in Europe", round: new_state.round },
-  //   ];
-  //   new_state.regions[0].lastRoundNewInfections = new_state.regions[0].infectionRate * new_state.regions[0].population;
-  // }
-
   //apply fixed new infections
   let newsItems = []
   switch (new_state.round) {
@@ -213,6 +200,17 @@ function nextRound(state: WorldState): WorldState {
   new_state.regions.forEach((region) => {
     totalPopulation += region.population;
     infectedPopulation += (region.infectionRate * region.population);
+
+    // set trend
+    if (region.infectionRate == 0) {
+      region.infectionTrend = 0;
+    } else if (region.infectionModifier >= 1) {
+      region.infectionTrend = 3;
+    } else if (region.infectionModifier >= 0.75) {
+      region.infectionTrend = 2;
+    } else {
+      region.infectionTrend = 1;
+    }
   });
   new_state.overallInfectionRate = infectedPopulation / totalPopulation;
 
