@@ -7,7 +7,7 @@ import InformedStatus from './containers/InformedStatus';
 import EventFeed from './containers/EventFeed/EventFeed'
 import ActionList from './containers/Actions/ActionList';
 import RegionStats from './containers/RegionStats';
-import RegionList from './containers/RegionList';
+//import RegionList from './containers/RegionList';
 import RoundControl from './containers/RoundControl';
 
 import { store } from './index';
