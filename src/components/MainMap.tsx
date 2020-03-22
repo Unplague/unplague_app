@@ -55,9 +55,13 @@ class MainMap extends React.Component<{regions:{name: string, population: number
             let poly = turf.multiPolygon(continents.features[i].geometry.coordinates);
             if (turf.booleanPointInPolygon(pt, poly)) newActiveRegion = continents.features[i].properties.CONTINENT;
         }
-  
-        let regionId = this.props.regions.map(function(e, i) { return e.name; }).indexOf(newActiveRegion);
-        store.dispatch(selectRegion(regionId));
+        
+        if (newActiveRegion !== "None") {
+            let regionId = this.props.regions.map(function(e, i) { return e.name; }).indexOf(newActiveRegion);
+            store.dispatch(selectRegion(regionId));
+        } else {
+            store.dispatch(selectRegion(-1));
+        }
 
         this.setState({activeRegion: newActiveRegion});
     }
