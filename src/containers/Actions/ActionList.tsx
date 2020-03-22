@@ -13,7 +13,7 @@ function createAction(item: any, i: number) {
 
 const ActionList = (props: any) => {
     return (
-        <div className="ActionContainer board">
+        <div className="ActionContainer">
             <h3>Actions</h3>
             <div className="ActionList">
                     {

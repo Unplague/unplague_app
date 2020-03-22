@@ -15,20 +15,20 @@ import EndScreen from './containers/EndScreen';
 
 
 interface MyProps {
-  
+
 }
 
 interface MyState {
   lat: any,
   lng: any,
-  zoom:any,
+  zoom: any,
   regions: any
 }
 
 class App extends React.Component<MyProps, MyState> {
 
   constructor(props: any) {
-    super(props); 
+    super(props);
 
     this.state = {
       lat: 51.505,
@@ -51,7 +51,7 @@ class App extends React.Component<MyProps, MyState> {
   render() {
     let position = [0, 0]
     let regions = [];
-    if(this.state.lat) {
+    if (this.state.lat) {
       position = [this.state.lat, this.state.lng];
       regions = this.state.regions;
     }
@@ -59,19 +59,22 @@ class App extends React.Component<MyProps, MyState> {
     return (
       <div className="app">
         <div className="header">
-          <div className="left board"><RoundControl /></div>
           <div className="center">Unplague</div>
           <div className="right"></div>
         </div>
         <div className="content">
-          <div className="eventboard board">
-            <EventFeed/>
+          <div className="interactionboard">
+          <div className="innerboard"><RoundControl /></div>
+          <div className="innerboard"><EventFeed /></div>
           </div>
           {/* <RegionList /> */}
-          <MainMap regions={regions}/>
+          <MainMap regions={regions} />
           <div className="interactionboard">
-            <RegionStats />
-            <ActionList />
+            <div className="innerboard">
+              <RegionStats />
+            </div>
+            <div className="innerboard scollable"><ActionList /></div>
+
           </div>
         </div>
         <div className="footer">
@@ -80,7 +83,7 @@ class App extends React.Component<MyProps, MyState> {
           <div className="right">Right</div>
           <EndScreen></EndScreen>
         </div>
-      </div> 
+      </div>
     );
   }
 }
