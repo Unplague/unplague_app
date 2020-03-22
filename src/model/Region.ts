@@ -13,9 +13,9 @@ export class Region {
         public name: string,
         public population: number, // constant
     ){
-        this.actionList = defaultActions.local.slice();
-        this.actionList.forEach(action => {
-            action.used = false;
-        });
+        this.actionList = defaultActions.local.map(action => Object.assign({}, action, {
+            "used": false,
+            "global": false,
+        }))
     }
 }
