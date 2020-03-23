@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.sass';
 import MainMap from './components/MainMap'
+import HelpModal from './components/HelpModal'
 
 import EventFeed from './containers/EventFeed'
 import ActionList from './containers/ActionList';
@@ -59,10 +60,15 @@ class App extends React.Component<MyProps, MyState> {
       <div className="app">
         <div className="header">
           <div className="left"></div>
-          <div className="center"><h1>unplague</h1></div>
-          <div className="right"></div>
+          <div className="center">
+            <span className="title">unplague</span>
+          </div>
+          <div className="right">
+            <a href="#open-modal">HowTo Play</a>
+          </div>
         </div>
         <div className="content">
+          <HelpModal/>
           <div className="interactionboard eventboard">
           <div className="innerboard roundboard"><RoundControl /><EndScreen/></div>
           <div className="innerboard scrollable"><EventFeed /></div>

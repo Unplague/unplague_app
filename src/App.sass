@@ -14,9 +14,10 @@ $family-sans-serif: 'Inconsolata', sans-serif;
 html,
 body 
     height: 100vh 
-    width: 100vw 
+    min-width: 1000px
     margin: 0 
     font-family: 'Inconsolata', monospace;
+    background-color: $backgroundcolor
 
 h1
     margin-top: 10px
@@ -26,13 +27,11 @@ h3
 .app 
     display: flex 
     flex-direction: column 
-    height: 100vh 
-    width: 100vw 
     color: $textcolor
     background-color: $backgroundcolor
 
 .info-container
-    position: absolute
+    position: fixed
     top: 0
     left: 0
     bottom: 0
@@ -67,37 +66,42 @@ h3
         margin-right: 15%
 
 .header 
-    height: 100px 
-    padding: 5px 
+    height: 35px 
+    padding: 15px 
     font-size: 26px 
     font-weight: bold 
     color: $textcolor
     display: flex
     flex-direction: row
-    justify-content: space-between
+    justify-content: center
     .left
         width: 200px
-        font-size: 14px
     .center
-        flex-grow: 1
+        //flex-grow: 1
         text-align: center
+        .title
+            font-size: 40px
     .right
-        width: 200px
+        font-size: 15px
+        a
+            color: gray
 
 .footer 
-    min-height: 100px 
+    
     display: flex
     flex-direction: row
     justify-content: space-between
     color: $textcolor
     background-color: black
+    padding: 10px
     // Left Footer
+    
     div
         text-align: center
     .left
         width: 40%
     .center
-        margin-top: 15px
+        margin-top: 5px
         flex-grow: 1
         display: flex
         flex-direction: column
@@ -122,7 +126,6 @@ h3
         background-color: $backgroundcolor !important
     // Event Feed
     .eventboard 
-    
         .EventContainer 
             display: flex 
             flex-direction: column 
@@ -141,13 +144,11 @@ h3
                     margin: 0 
                     padding: 0 
 
-
     .interactionboard 
         flex-direction: column
         flex-grow: 0
-        width: 300px 
-        length: 100vh
-        
+        width: 300px
+        min-width: 250px        
         .stats
             .data
                 margin-bottom: 5px
@@ -160,7 +161,6 @@ h3
             button
                 margin-top: 5px
                 width: 100%
-
         .innerboard
             padding: 10px
             padding-top: 10px		
@@ -297,3 +297,54 @@ h3
 span.help
     color: red
     cursor: help
+
+
+
+.modal-window 
+  position: fixed;
+  background-color: rgba(0,0,0, 0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  &:target 
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  
+  &>div 
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: $backgroundcolor
+  
+  header 
+    font-weight: bold;
+  
+  h1 
+    font-size: 150%;
+    margin: 0 0 15px;
+  
+
+
+.modal-close 
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  &:hover 
+    color: black;
+  
