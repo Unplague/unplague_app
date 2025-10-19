@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, Marker,  GeoJSON, LatLngBounds } from 'react-leaflet';
+import { MapContainer, Marker,  GeoJSON, useMapEvents } from 'react-leaflet';
 import { LatLngTuple, latLngBounds, icon } from 'leaflet';
 import 'leaflet-css';
 import continents from '../data/continents.json';
@@ -190,7 +190,7 @@ class MainMap extends React.Component<{regions:{name: string, population: number
     render() {
         //window.addEventListener('resize', this.updateMapSize);
         let position: LatLngTuple = [this.state.lat, this.state.lng];
-        return (<Map
+        return (<MapContainer
                 center={position} 
                 zoom={this.state.zoom}
                 scrollWheelZoom={false}
@@ -198,28 +198,38 @@ class MainMap extends React.Component<{regions:{name: string, population: number
                 doubleClickZoom={false}
                 touchZoom={false}
                 dragging={false}
-                animate={false}
-                onresize={this.updateMapSize}
                 attributionControl={false}
-                onclick={this.selectRegion}
+                style={{ height: '100%', width: '100%' }}
             >
+            <MapEvents onMapClick={this.selectRegion} onResize={this.updateMapSize} />
             <GeoJSON 
                 data={continents as any} 
                 style={this.getStyle}
             />
-            {this.props.regions.map((region) => {
+            {this.props.regions.map((region, idx) => {
                     let marker: any = this.getSatisfactionMarker(region);
-                    return <Marker position={marker.position} icon={marker.icon}/>
+                    return <Marker key={`satisfaction-${idx}`} position={marker.position} icon={marker.icon}/>
                 }
             )}
-            {this.props.regions.map((region) => {
-                    if (!region.infectionTrend) return;
+            {this.props.regions.map((region, idx) => {
+                    if (!region.infectionTrend) return null;
                     let marker: any = this.getTrendMarker(region);
-                    return <Marker position={marker.position} icon={marker.icon}/>
+                    return <Marker key={`trend-${idx}`} position={marker.position} icon={marker.icon}/>
                 }
             )}
-        </Map>);
+        </MapContainer>);
   }
 }
 
+// Component to handle map events in react-leaflet v3
+function MapEvents({ onMapClick, onResize }: { onMapClick: (evt: any) => void, onResize: (evt: any) => void }) {
+    useMapEvents({
+        click: onMapClick,
+        resize: onResize,
+    });
+    return null;
+}
+
+
 export default MainMap;
+

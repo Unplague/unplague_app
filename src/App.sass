@@ -1,14 +1,14 @@
-@charset "utf-8";
+@charset "utf-8"
 
 // Set your colors
-$backgroundcolor: #2B2D42;
-$contrastcolor: #8D99AE;
-$textcolor: #EDF2F4;
+$backgroundcolor: #2B2D42
+$contrastcolor: #8D99AE
+$textcolor: #EDF2F4
 $redcolor: #EF233C
 $reddarkcolor: #D90429
 
 // Update global variables
-$family-sans-serif: 'Inconsolata', sans-serif;
+$family-sans-serif: 'Inconsolata', sans-serif
 
 // Main App
 html,
@@ -16,7 +16,7 @@ body
     height: 100vh 
     min-width: 1000px
     margin: 0 
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', monospace
     background-color: $backgroundcolor
 
 h1
@@ -183,7 +183,7 @@ h3
                 width: 100%
 
         .regionboard
-            height: 220px;
+            height: 220px
             max-height: 400px
     
 
@@ -208,8 +208,8 @@ h3
         margin-bottom: 5px
         background-color: $backgroundcolor
         color: $textcolor
-        font-family: inherit;
-        font-size: 1em;
+        font-family: inherit
+        font-size: 1em
 
         &:hover
             background-color: lighten($backgroundcolor, 5%)
@@ -303,50 +303,48 @@ span.help
 
 
 .modal-window 
-  position: fixed;
-  background-color: rgba(0,0,0, 0.5);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s;
+  position: fixed
+  background-color: rgba(0,0,0, 0.5)
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 999
+  visibility: hidden
+  opacity: 0
+  pointer-events: none
+  transition: all 0.3s
   &:target 
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
+    visibility: visible
+    opacity: 1
+    pointer-events: auto
   
   &>div 
-    width: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2em;
+    width: 400px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    padding: 2em
     background: $backgroundcolor
   
   header 
-    font-weight: bold;
+    font-weight: bold
   
   h1 
-    font-size: 150%;
-    margin: 0 0 15px;
-  
+    font-size: 150%
+    margin: 0 0 15px
 
 
 .modal-close 
-  color: #aaa;
-  line-height: 50px;
-  font-size: 80%;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  width: 70px;
-  text-decoration: none;
+  color: #aaa
+  line-height: 50px
+  font-size: 80%
+  position: absolute
+  right: 0
+  text-align: center
+  top: 0
+  width: 70px
+  text-decoration: none
   &:hover 
-    color: black;
-  
+    color: black
